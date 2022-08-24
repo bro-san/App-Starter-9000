@@ -1,31 +1,56 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import { Header } from 'semantic-ui-react'
+import NavBar from './component/NavBar'
+import Signup from "./component/Signup";
+import Login from "./component/Login";
+import Home from './component/Home';
+import Apple from './component/Apple';
+import AppleApps from './component/AppleApps';
+import Andriod from './component/Android';
+import AndriodApps from './component/AndriodApps';
+
 
 function App() {
-  
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': SECRET_API_KEY,
-      'X-RapidAPI-Host': 'app-stores.p.rapidapi.com'
-    }
-  };
-
-  useEffect(() => {
-    fetch('https://app-stores.p.rapidapi.com/reviews?store=google&id=com.snapchat.android&language=en', options)
-      .then(response => response.json())
-      .then(response => console.log(response))
-      .catch(err => console.error(err));
-  }, [])
+  const [user, setUser] = useState(false);
   
   return (
-    <div className="App">
-      <h1>Looking for Inspiration, Motivation, Imagination?</h1>
-      <h2>How about this creation / recommendation / manifestation / visualization / derivation / iteration / reincarnation for your fascination:</h2>
+  <>
+    <Header>
+        <NavBar user = {user} setUser = {setUser}/>
+    </Header>
+    <Switch>
+        <Route  path="/signup">
+          <Signup />
+        </Route>
+        
+        <Route exact path="/login">
+          <Login setUser = {setUser}/>
+        </Route>
 
-      <h2>I need more sophistication / diversification stimulation / innovation / excitation... how about this demonstration for your contemplation /infatuation?</h2>
-    </div>
+        <Route  exact path="/apple">
+          <Apple />
+        </Route>
+
+        <Route  exact path="/apple/apps">
+          <AppleApps/>
+        </Route>
+
+        <Route  exact path="/andriod">
+          <Andriod />
+        </Route>
+
+        <Route  exact path="/andriod/apps">
+          <AndriodApps/>
+        </Route>
+
+        <Route exact path="/welcome">
+          <Home />
+        </Route>
+        
+    </Switch>
+    </>
   );
 }
 
