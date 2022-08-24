@@ -1,31 +1,49 @@
 import './App.css';
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import { Header } from 'semantic-ui-react'
+import NavBar from './component/NavBar'
+import Signup from "./component/Signup";
+import Login from "./component/Login";
+import Home from './component/Home';
+import AppPage from './component/AppPage';
+import AppsList from './component/AppsList';
+
 
 function App() {
+  const [user, setUser] = useState(false);
   
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': SECRET_API_KEY,
-      'X-RapidAPI-Host': 'app-stores.p.rapidapi.com'
-    }
-  };
+  const [store, setStore] = useState("");
 
-  useEffect(() => {
-    fetch('https://app-stores.p.rapidapi.com/reviews?store=google&id=com.snapchat.android&language=en', options)
-      .then(response => response.json())
-      .then(response => console.log(response))
-      .catch(err => console.error(err));
-  }, [])
-  
+
   return (
-    <div className="App">
-      <h1>Looking for Inspiration, Motivation, Imagination?</h1>
-      <h2>How about this creation / recommendation / manifestation / visualization / derivation / iteration / reincarnation for your fascination:</h2>
+  <>
+    <Header>
+        <NavBar user = {user} setUser = {setUser}/>
+    </Header>
+    <Switch>
+        <Route  path="/signup">
+          <Signup />
+        </Route>
+        
+        <Route exact path="/login">
+          <Login setUser = {setUser}/>
+        </Route>
 
-      <h2>I need more sophistication / diversification stimulation / innovation / excitation... how about this demonstration for your contemplation /infatuation?</h2>
-    </div>
+        <Route  exact path="/fork">
+          <AppPage/>
+        </Route>
+
+        <Route  exact path="/fork/apps">
+          <AppsList store={store}/>
+        </Route>
+
+        <Route exact path="/home">
+          <Home setStore={setStore}/>
+        </Route>
+        
+    </Switch>
+    </>
   );
 }
 
