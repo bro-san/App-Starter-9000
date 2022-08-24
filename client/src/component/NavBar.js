@@ -24,31 +24,31 @@ function NavBar({user, setUser}) {
 
     return (
         <Header>
-        <Menu textAlign="center">
-           <Menu.Menu position='left'>
-                 <Menu.Item>
-                    <NavLink exact to='/home'>   
-                       <Button >Initial Location</Button>
-                    </NavLink>
-                 </Menu.Item>
-        </Menu.Menu>
-        <Menu.Menu position='right'>
-            <Menu.Item class='navbar'>
-                 <NavLink exact to='/signup'>
-                    <Button primary>Registration</Button>
-                 </NavLink>
-              </Menu.Item>
-              <Menu.Item class='navbar'>
-              {user == null ? <Button>
-              <NavLink exact to='/login'>   
-                 Authentication
-              </NavLink> 
-              </Button> :
-              <Button onClick={()=> onLogout()}>
-                 Resignation
-              </Button>}
-           </Menu.Item>
-        </Menu.Menu>
+            <Menu textAlign="center">
+                <Button class='ui button'>
+                     <NavLink exact to='/home'>   
+                     Initial Location
+                     </NavLink>
+                </Button>
+
+               <Menu.Item class='navbar'>
+                  <Button>
+                     <NavLink exact to='/signup'>
+                     Registration
+                     </NavLink>
+                  </Button>
+               </Menu.Item>
+
+               <Menu.Item class='navbar'>
+                  {user==null || user == false ? <Button>
+                  <NavLink exact to='/login'>   
+                     Authentication
+                  </NavLink> 
+                  </Button> :
+                  <Button onClick={(e)=> onLogout(e)}>
+                     Resignation
+                  </Button>}
+               </Menu.Item>
         </Menu>
   </Header>
     )

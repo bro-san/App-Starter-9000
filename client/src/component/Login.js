@@ -39,7 +39,8 @@ const Login = ({setUser}) => {
   return (
 
     <Container textAlign="center"> 
-        <h1>Login</h1>
+        <h1>Authentication</h1>
+        <h3>(Login)</h3>
         <Form  onSubmit={(e)=> handleSubmit(e)}>
 
         <Form.Field>

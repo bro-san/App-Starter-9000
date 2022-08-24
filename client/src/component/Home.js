@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Header, Container, Menu } from "semantic-ui-react";
 // import { Image } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
-function Home() {
+function Home({setStore}) {
+
+    function handleClick(e){
+        let value = e.target.innerText
+        setStore(value.toLowerCase())
+    }
 
     return (
 
@@ -19,12 +24,16 @@ function Home() {
             <Menu  fluid widths={2} class="ui two column grid">
                 <Menu.Item textAlign="center" class="column">
                     <h2 class="medium">
-                        <Link to="/apple">Apple</Link>
+                        <Link to="/fork" onClick={(e)=> handleClick(e)}>Apple</Link>
+                        <br></br>
+                        (iOS)
                     </h2>
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
                     <h2 class="medium"> 
-                        <Link to="/andriod">Andriod</Link>
+                        <Link to="/fork" onClick={(e)=> handleClick(e)}>Google</Link>
+                        <br></br>
+                        (Android)
                     </h2>
                 </Menu.Item>
             </Menu>

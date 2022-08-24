@@ -37,7 +37,8 @@ const Signup = () => {
 
   return (
     <Container textAlign="center"> 
-        <h1>Signup</h1>
+        <h1>Registration</h1>
+        <h3>(Sign-up)</h3>
         <Form onSubmit={(e)=> handleSubmit(e)}>
 
             <Form.Field>
