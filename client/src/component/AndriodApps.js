@@ -43,9 +43,13 @@ function AndriodApps(){
 
      console.log(andriodApps)
 
+     const nouns = ['creations', 'recommendations', 'iterations']
+     let noun = nouns[Math.floor(Math.random()*nouns.length)];
+
+
     return(
         <Container textAlign="left"> 
-        <h1>How about these creataions?</h1>
+        <h1>How about these {noun}?</h1>
         <Card.Group itemsPerRow={1}>
             {andriodAppsList}
         </Card.Group>

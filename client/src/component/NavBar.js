@@ -23,15 +23,34 @@ function NavBar({user, setUser}) {
     console.log(user)
 
     return (
-        <div>
-            <h1>Navigation:</h1>
-            <a>Registration or Authentication </a>
-            <a>Information / Preparation</a>
-            <a>Convseration / Cooperartion / Collaboration</a>
-            <a>Invitation / Participation</a>
-            <a>Celebration / Admiration / APPreciation / Ovation / Jubilation / Commemoration</a>
-            <a>Complication?</a>
-        </div>
+        <Header>
+        <Menu textAlign="center">
+           <Menu.Menu position='left'>
+                 <Menu.Item>
+                    <NavLink exact to='/home'>   
+                       <Button >Initial Location</Button>
+                    </NavLink>
+                 </Menu.Item>
+        </Menu.Menu>
+        <Menu.Menu position='right'>
+            <Menu.Item class='navbar'>
+                 <NavLink exact to='/signup'>
+                    <Button primary>Registration</Button>
+                 </NavLink>
+              </Menu.Item>
+              <Menu.Item class='navbar'>
+              {user == null ? <Button>
+              <NavLink exact to='/login'>   
+                 Authentication
+              </NavLink> 
+              </Button> :
+              <Button onClick={()=> onLogout()}>
+                 Resignation
+              </Button>}
+           </Menu.Item>
+        </Menu.Menu>
+        </Menu>
+  </Header>
     )
 }
 

@@ -45,7 +45,7 @@ function App() {
           <AndriodApps/>
         </Route>
 
-        <Route exact path="/welcome">
+        <Route exact path="/home">
           <Home />
         </Route>
         
