@@ -7,7 +7,7 @@ function App() {
   const options = {
     method: 'GET',
     headers: {
-      'X-RapidAPI-Key': '273a166339mshd767c60ebd4c95cp1aea2cjsn3f5b1c4f3066',
+      'X-RapidAPI-Key': SECRET_API_KEY,
       'X-RapidAPI-Host': 'app-stores.p.rapidapi.com'
     }
   };
