@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom"
 import { Card, Button, Icon } from "semantic-ui-react";
 
-function AppleAppCard({id, link, name, category, ratings, description, icons, screenshots}){
+function AndriodAppCard({id, link, name, category, ratings, description, icons, screenshots}){
     
     return(
         <Card>
@@ -50,4 +50,4 @@ function AppleAppCard({id, link, name, category, ratings, description, icons, sc
     )
 }
 
-export default AppleAppCard;
+export default AndriodAppCard;
