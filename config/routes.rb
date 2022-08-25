@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :favorites
   resources :comments
   resources :responses
-  resources :programs
+  resources :programs, only: [:index, :show, :create]
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
