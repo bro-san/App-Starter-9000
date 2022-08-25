@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Header, Container, Menu } from "semantic-ui-react";
 // import { Image } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
-function Home({setStore, user}) {
+
+function Home({setStore, userInfo}) {
 
     function handleClick(e){
         let value = e.target.innerText
         setStore(value.toLowerCase())
     }
+    
+    console.log(userInfo)
     
     return (
 

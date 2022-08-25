@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
-import AppCard from "./AppCard";
+import FavAppCard from "./FavAppCard";
 import { Container, Card } from "semantic-ui-react";
 
 function UserPage() {
@@ -23,26 +23,24 @@ function UserPage() {
                 res.json().then(data => setErrors(data.error))
             }
         })
-    },[])
+    },[handleUnfavorite()])
 
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
 
-    console.log(thisUser.programs)
+    console.log(thisUser)
 
-    const appsList = thisUser.programs.map(app => {
-        return <AppCard key={app.id}
-        id={app.id}
-        link={app.link}
-        name={app.name}
-        category={app.category}
-        ratings={app.rating}
-        description={app.description}
-        icons={app.icon}
-        screenshots={app.screenshot}
-        // handleDelete={handleDelete}
+    const appsList = thisUser.favorites.map(fav => {
+        return <FavAppCard key={fav.id}
+        id={fav.id}
+        handleUnfavorite={handleUnfavorite}
         />
     })
+
+    function handleUnfavorite() {
+        console.log("Removed!")
+      }
+
     return (
         <Container textAlign="left"> 
         <h1>Hello, {thisUser.name}!</h1>

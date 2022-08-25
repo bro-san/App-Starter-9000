@@ -34,18 +34,17 @@ function AppCard({id, link, name, category, ratings, description, icons, screens
                     <h4>Screenshot:</h4>
                     <img src={screenshots[0]} alt="app's screenshot #1"/>
                 </Card.Content >
-
-                <Button >Favorite</Button>
-                {/* <Button ><Link to={`/${id}/RequestDetail`}>   
-                     Update Requeast
+                <Button >
+                    <Link to={`/programs/${id}`}>   
+                        App Comments
                      </Link>
-                </Button> */}
-                {/* <Button animated onClick={handleClick}>
-                    <Button.Content visible >Delete Request?</Button.Content>
+                </Button>
+                <Button animated>
+                    <Button.Content visible >Favorite?</Button.Content>
                     <Button.Content hidden>
-                        <Icon name='close' />
+                        <Icon name='heart' />
                     </Button.Content>
-                </Button> */}
+                </Button>
         </Card>
     )
 }

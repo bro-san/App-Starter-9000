@@ -1,7 +1,6 @@
 import React from "react";
 import AppCard from "./AppCard";
 import { Container, Card } from 'semantic-ui-react';
-// import { Card, Form, Label, Button, Input } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import config from "../config";
 

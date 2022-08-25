@@ -9,30 +9,36 @@ import Home from './component/Home';
 import AppPage from './component/AppPage';
 import AppsList from './component/AppsList';
 import UserPage from './component/UserPage';
+import ProgramPage from './component/ProgramPage';
 
 
 function App() {
   const [user, setUser] = useState(false);
-  
+  const [userInfo, setUserInfo] = useState({});
+
   const [store, setStore] = useState("");
 
 
   return (
   <>
     <Header>
-        <NavBar user = {user} setUser = {setUser}/>
+        <NavBar user = {user} setUser = {setUser} userInfo={userInfo}/>
     </Header>
     <Switch>
         <Route  path="/signup">
-          <Signup />
+          <Signup setUserInfo={setUserInfo}/>
         </Route>
         
         <Route exact path="/login">
-          <Login setUser = {setUser}/>
+          <Login setUser = {setUser} setUserInfo={setUserInfo}/>
         </Route>
 
         <Route  exact path="/users/:id">
-          <UserPage user={user}/>
+          <UserPage userInfo={userInfo}/>
+        </Route>
+
+        <Route  exact path="/programs/:id">
+          <ProgramPage />
         </Route>
 
         <Route  exact path="/fork">
@@ -44,7 +50,7 @@ function App() {
         </Route>
 
         <Route exact path="/home">
-          <Home setStore={setStore} user={user}/>
+          <Home setStore={setStore} user={user} userInfo={userInfo}/>
         </Route>
         
     </Switch>
