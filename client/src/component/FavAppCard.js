@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom"
 import { Card, Button, Icon } from "semantic-ui-react";
 
-function FavAppCard({id, link, name, category, ratings, description, icons, screenshots}){
+function FavAppCard({id, link, name, category, rating, description, icon, screenshot}){
     
     return(
         <Card>
                 <Card.Content class="header">
                     <h1>{name}</h1>
-                    <img src={icons.medium} alt="app's icon"/>
+                    <img src={icon} alt="app's icon"/>
                 </Card.Content >
 
                 <Card.Content class="header">
@@ -22,7 +22,7 @@ function FavAppCard({id, link, name, category, ratings, description, icons, scre
 
                 <Card.Content  class="header">
                     <h4>Rating:</h4>
-                    {ratings.average}
+                    {rating}
                 </Card.Content >
 
                 <Card.Content  class="header">
@@ -32,10 +32,10 @@ function FavAppCard({id, link, name, category, ratings, description, icons, scre
 
                 <Card.Content class="header">
                     <h4>Screenshot:</h4>
-                    <img src={screenshots[0]} alt="app's screenshot #1"/>
+                    <img src={screenshot} alt="app's screenshot #1"/>
                 </Card.Content >
                 <Button >
-                    <Link to={`/${id}/RequestDetail`}>   
+                    <Link to={`/programs/${id}`}>   
                         App Comments
                      </Link>
                 </Button>

@@ -35,7 +35,7 @@ function AppCard({id, link, name, category, ratings, description, icons, screens
                     <img src={screenshots[0]} alt="app's screenshot #1"/>
                 </Card.Content >
                 <Button >
-                    <Link to={`/${id}/RequestDetail`}>   
+                    <Link to={`/programs/${id}`}>   
                         App Comments
                      </Link>
                 </Button>

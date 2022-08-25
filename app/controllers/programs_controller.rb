@@ -7,7 +7,7 @@ class ProgramsController < ApplicationController
 
     def show
         program = Program.find(params[:id])
-        render json: program    
+        render json: program, serializer: ProgramWithCommentsSerializer    
     end
 
     def create

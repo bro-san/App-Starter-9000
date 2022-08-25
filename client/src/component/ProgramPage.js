@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
-import FavAppCard from "./FavAppCard";
 import { Container, Card } from "semantic-ui-react";
+import CommentsCard from './CommentsCard';
 
-function UserPage() {
-    const [thisUser, setThisUser] = useState()
+function ProgramPage() {
+    const [thisApp, setThisApp] = useState()
     const [loading, setLoading] = useState(true)
     const [errors, setErrors] = useState(false)
 
@@ -12,11 +12,11 @@ function UserPage() {
     const {id} = params
 
     useEffect(()=>{
-        fetch(`/users/${id}`)
+        fetch(`/programs/${id}`)
         .then(res => {
             if(res.ok){
-                res.json().then(user => {
-                    setThisUser(user)
+                res.json().then(app => {
+                    setThisApp(app)
                     setLoading(false)
                 })
             }else {
@@ -28,30 +28,29 @@ function UserPage() {
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
 
-    console.log(thisUser.programs)
+    console.log(thisApp)
 
-    const appsList = thisUser.programs.map(app => {
-        return <FavAppCard key={app.id}
-        id={app.id}
-        link={app.link}
-        name={app.name}
-        category={app.category}
-        rating={app.rating}
-        description={app.description}
-        icon={app.icon}
-        screenshot={app.screenshot}
+    const commentsList = thisApp.comments.map(comment => {
+        return <CommentsCard key={comment.id}
+        id={comment.id}
+        post={comment.letter}
+        poster={comment.user}
         // handleDelete={handleDelete}
         />
     })
+    
     return (
         <Container textAlign="left"> 
-        <h1>Hello, {thisUser.name}!</h1>
-        <h3>Your Favorited Apps:</h3>
+        <h1>{thisApp.name}</h1>
+        <img src={thisApp.icon} alt="app's icon"/>
+        <h4>Category: <u>{thisApp.category}</u></h4> 
+        <h4>Rating: <em>{thisApp.rating}</em></h4> 
+
         <Card.Group itemsPerRow={1}>
-            {appsList}
+            {commentsList}
         </Card.Group>
         </Container>
     );
   }
 
-export default UserPage;
+export default ProgramPage;

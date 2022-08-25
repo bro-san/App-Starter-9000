@@ -9,6 +9,7 @@ import Home from './component/Home';
 import AppPage from './component/AppPage';
 import AppsList from './component/AppsList';
 import UserPage from './component/UserPage';
+import ProgramPage from './component/ProgramPage';
 
 
 function App() {
@@ -33,6 +34,10 @@ function App() {
 
         <Route  exact path="/users/:id">
           <UserPage user={user}/>
+        </Route>
+
+        <Route  exact path="/programs/:id">
+          <ProgramPage />
         </Route>
 
         <Route  exact path="/fork">
