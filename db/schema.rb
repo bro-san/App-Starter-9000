@@ -16,12 +16,13 @@ ActiveRecord::Schema.define(version: 2022_08_25_015340) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.string "posts"
+    t.string "letter"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.string "reason"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -39,7 +40,7 @@ ActiveRecord::Schema.define(version: 2022_08_25_015340) do
   end
 
   create_table "responses", force: :cascade do |t|
-    t.string "posts"
+    t.string "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

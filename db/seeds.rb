@@ -20,13 +20,13 @@ require 'faker'
 
 50.times{
     Comment.create( 
-        post: Faker::Movies::PrincessBride.quote
+        letter: Faker::Movies::PrincessBride.quote
     )
 }
 
 50.times{
     Response.create( 
-        post: Faker::Hacker.say_something_smart
+        note: Faker::Hacker.say_something_smart
     )
 }
 
@@ -39,5 +39,11 @@ require 'faker'
         description: Faker::TvShows::RickAndMorty.quote,
         icon: Faker::Avatar.image,
         screenshot: Faker::LoremFlickr.image
+    )
+}
+
+30.times{
+    Favorite.create( 
+        reason: Faker::Adjective.positive
     )
 }
