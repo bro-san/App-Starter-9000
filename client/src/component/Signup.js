@@ -14,7 +14,7 @@ const Signup = () => {
    
     function handleSubmit(e) {
         e.preventDefault()
-        fetch('/realtors', {
+        fetch('/users', {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
