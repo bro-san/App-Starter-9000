@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
-import AppCard from "./AppCard";
+import FavAppCard from "./FavAppCard";
 import { Container, Card } from "semantic-ui-react";
 
 function UserPage() {
@@ -31,7 +31,7 @@ function UserPage() {
     console.log(thisUser.programs)
 
     const appsList = thisUser.programs.map(app => {
-        return <AppCard key={app.id}
+        return <FavAppCard key={app.id}
         id={app.id}
         link={app.link}
         name={app.name}

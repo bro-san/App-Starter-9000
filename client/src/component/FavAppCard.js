@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom"
 import { Card, Button, Icon } from "semantic-ui-react";
 
-function AppCard({id, link, name, category, ratings, description, icons, screenshots}){
+function FavAppCard({id, link, name, category, ratings, description, icons, screenshots}){
     
     return(
         <Card>
@@ -40,13 +40,13 @@ function AppCard({id, link, name, category, ratings, description, icons, screens
                      </Link>
                 </Button>
                 <Button animated>
-                    <Button.Content visible >Favorite?</Button.Content>
+                    <Button.Content visible >Unfavorite?</Button.Content>
                     <Button.Content hidden>
-                        <Icon name='heart' />
+                        <Icon name='heart outline' />
                     </Button.Content>
                 </Button>
         </Card>
     )
 }
 
-export default AppCard;
+export default FavAppCard;
