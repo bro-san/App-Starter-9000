@@ -5,3 +5,45 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'faker'
+
+20.times{
+    User.create(
+        name: Faker::Name.name, 
+        username: Faker::Internet.username, 
+        email: Faker::Internet.email, 
+        password: Faker::Games::DnD.monster, 
+        admin: Faker::Boolean.boolean(true_ratio: 0.1)
+    )
+}
+
+50.times{
+    Comment.create( 
+        letter: Faker::Movies::PrincessBride.quote
+    )
+}
+
+50.times{
+    Response.create( 
+        note: Faker::Hacker.say_something_smart
+    )
+}
+
+20.times{
+    Program.create(
+        name: Faker::Book.title, 
+        link: Faker::Internet.domain_name, 
+        category: Faker::Book.genre, 
+        rating: Faker::Number.between(from: 0.0, to: 5.0), 
+        description: Faker::TvShows::RickAndMorty.quote,
+        icon: Faker::Avatar.image,
+        screenshot: Faker::LoremFlickr.image
+    )
+}
+
+30.times{
+    Favorite.create( 
+        reason: Faker::Adjective.positive
+    )
+}

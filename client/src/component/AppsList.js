@@ -13,7 +13,7 @@ function AppsList({store}){
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': {secretkey},
+            'X-RapidAPI-Key': secretkey,
             'X-RapidAPI-Host': 'app-stores.p.rapidapi.com'
         }
     };
