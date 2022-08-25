@@ -1,8 +1,5 @@
 class UsersController < ApplicationController
 
-     # skip_before_action :authenticate_realtor
-    # # Above line needs to be in every controller 
-    # that we want to run that does not require authentication 
     # skip_before_action :authenticate_user
 
     def index 
@@ -19,7 +16,7 @@ class UsersController < ApplicationController
         
         user = User.create(user_params)
         if user.valid?
-            # session[:realtor_id] = realtor.id
+            session[:user_id] = user.id
             render json: user, status: :ok
        else
             render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
