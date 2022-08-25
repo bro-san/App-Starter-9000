@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :users
+  resources :favorites
+  resources :comments
+  resources :responses
+  resources :programs
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
