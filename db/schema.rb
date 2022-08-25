@@ -16,15 +16,23 @@ ActiveRecord::Schema.define(version: 2022_08_25_015340) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "program_id", null: false
     t.string "letter"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["program_id"], name: "index_comments_on_program_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "program_id", null: false
     t.string "reason"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["program_id"], name: "index_favorites_on_program_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "programs", force: :cascade do |t|
@@ -40,9 +48,13 @@ ActiveRecord::Schema.define(version: 2022_08_25_015340) do
   end
 
   create_table "responses", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "comment_id", null: false
     t.string "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_responses_on_comment_id"
+    t.index ["user_id"], name: "index_responses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -55,4 +67,10 @@ ActiveRecord::Schema.define(version: 2022_08_25_015340) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "comments", "programs"
+  add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "programs"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "responses", "comments"
+  add_foreign_key "responses", "users"
 end
