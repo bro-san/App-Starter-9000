@@ -8,6 +8,8 @@
 
 require 'faker'
 
+puts "Seeding users..."
+
 20.times{
     User.create(
         name: Faker::Name.name, 
@@ -18,17 +20,23 @@ require 'faker'
     )
 }
 
+puts "Seeding comments..."
+
 50.times{
     Comment.create( 
         letter: Faker::Movies::PrincessBride.quote
     )
 }
 
+puts "Seeding responses..."
+
 50.times{
     Response.create( 
         note: Faker::Hacker.say_something_smart
     )
 }
+
+puts "Seeding programs..."
 
 20.times{
     Program.create(
@@ -41,6 +49,8 @@ require 'faker'
         screenshot: Faker::LoremFlickr.image
     )
 }
+
+puts "Seeding favorites..."
 
 30.times{
     Favorite.create( 
