@@ -34,7 +34,6 @@ function ProgramPage() {
         return <CommentsCard key={comment.id}
         id={comment.id}
         post={comment.letter}
-        poster={comment.user}
         // handleDelete={handleDelete}
         />
     })
