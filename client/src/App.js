@@ -22,7 +22,7 @@ function App() {
   return (
   <>
     <Header>
-        <NavBar user = {user} setUser = {setUser}/>
+        <NavBar user = {user} setUser = {setUser} userInfo={userInfo}/>
     </Header>
     <Switch>
         <Route  path="/signup">
@@ -50,7 +50,7 @@ function App() {
         </Route>
 
         <Route exact path="/home">
-          <Home setStore={setStore} user={user}/>
+          <Home setStore={setStore} user={user} userInfo={userInfo}/>
         </Route>
         
     </Switch>

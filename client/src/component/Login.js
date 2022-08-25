@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import { Container } from 'semantic-ui-react';
-import { Card, Form, Label, Button, Input } from 'semantic-ui-react';
+import { Form, Container, Button } from 'semantic-ui-react';
 import { useHistory } from "react-router-dom";
 
 const Login = ({setUser, setUserInfo}) => {
@@ -9,6 +8,8 @@ const Login = ({setUser, setUserInfo}) => {
     username: " ",
     password: " "
   })
+
+  const [errors, setErrors] = useState([])
   const history = useHistory();
 
   function handleSubmit(e){
@@ -24,17 +25,19 @@ const Login = ({setUser, setUserInfo}) => {
           "password": form.password.trim()
         })
       })
-      
-        .then(response => {
-          if(response.ok){
-            setUser(true)
-            response.json().then(() => {
-              history.push("/home")
-          }
-
-        )}})     
-        
-  }
+      .then(res => {
+        if(res.ok){
+            res.json().then(user => {
+                setUser(user)
+                setUserInfo(user)
+                history.push(`/users/${user.id}`)
+            })
+        }else {
+            res.json().then(json => setErrors(json.errors))
+        }
+    })
+   
+}
 
   return (
 

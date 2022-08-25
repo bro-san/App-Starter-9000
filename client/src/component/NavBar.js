@@ -2,7 +2,7 @@ import { Menu, Header, Button }  from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
-function NavBar({user, setUser}) {
+function NavBar({user, setUser, userInfo}) {
     const history = useHistory();
   
     function onLogout(e){
@@ -51,7 +51,7 @@ function NavBar({user, setUser}) {
                <Menu.Item class='navbar'>
                   {user==null || user == false ? null :
                      <Button>
-                        <NavLink exact to='/users/:id'>   
+                        <NavLink exact to={`/users/${userInfo.id}`}>   
                            Personalization
                         </NavLink> 
                      </Button>}
