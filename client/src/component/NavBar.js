@@ -30,7 +30,7 @@ function NavBar({user, setUser, userInfo}) {
 
                <Menu.Item class='navbar'>
                   {user==null || user == false ? <Button>
-                  <NavLink exact to='/login'>   
+                  <NavLink exact to='/signup'>   
                      Registration
                   </NavLink> 
                   </Button> :
