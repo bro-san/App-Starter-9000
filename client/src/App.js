@@ -8,6 +8,7 @@ import Login from "./component/Login";
 import Home from './component/Home';
 import AppPage from './component/AppPage';
 import AppsList from './component/AppsList';
+import UserPage from './component/UserPage';
 
 
 function App() {
@@ -30,6 +31,10 @@ function App() {
           <Login setUser = {setUser}/>
         </Route>
 
+        <Route  exact path="/users/:id">
+          <UserPage user={user}/>
+        </Route>
+
         <Route  exact path="/fork">
           <AppPage/>
         </Route>
@@ -39,7 +44,7 @@ function App() {
         </Route>
 
         <Route exact path="/home">
-          <Home setStore={setStore}/>
+          <Home setStore={setStore} user={user}/>
         </Route>
         
     </Switch>

@@ -3,13 +3,13 @@ class UsersController < ApplicationController
     skip_before_action :authenticate_user
 
     def index 
-        render json: User.all, status: :ok
+        render json: User.all
     end
     
     def show
         
        user = User.find(params[:id])
-       render json: user, status: :ok
+       render json: user, serializer: UserWithFavoritesSerializerSerializer
     end
 
     def create
