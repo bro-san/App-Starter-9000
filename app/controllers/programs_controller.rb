@@ -1,4 +1,5 @@
 class ProgramsController < ApplicationController
+    skip_before_action :authenticate_user
 
     def index
         render json: Program.all

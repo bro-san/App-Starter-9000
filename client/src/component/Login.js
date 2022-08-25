@@ -29,7 +29,7 @@ const Login = ({setUser}) => {
           if(response.ok){
             setUser(true)
             response.json().then(() => {
-              history.push("/users")
+              history.push("/home")
           }
 
         )}})     

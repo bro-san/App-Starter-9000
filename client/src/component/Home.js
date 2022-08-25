@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Header, Container, Menu } from "semantic-ui-react";
 // import { Image } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
-function Home({setStore}) {
+function Home({setStore, user}) {
 
     function handleClick(e){
         let value = e.target.innerText
         setStore(value.toLowerCase())
     }
-
+    
     return (
 
         <Container textAlign="center">

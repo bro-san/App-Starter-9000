@@ -15,12 +15,10 @@ function NavBar({user, setUser}) {
           if(response.ok){
             setUser(false)
             response.json().then(() => {
-              history.push("/signup")
+              history.push("/login")
           }
         )}})
     }
-
-    console.log(user)
 
     return (
         <Header>
