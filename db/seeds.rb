@@ -8,6 +8,8 @@
 
 require 'faker'
 
+puts "Seeding users..."
+
 20.times{
     User.create(
         name: Faker::Name.name, 
@@ -18,17 +20,7 @@ require 'faker'
     )
 }
 
-50.times{
-    Comment.create( 
-        letter: Faker::Movies::PrincessBride.quote
-    )
-}
-
-50.times{
-    Response.create( 
-        note: Faker::Hacker.say_something_smart
-    )
-}
+puts "Seeding programs..."
 
 20.times{
     Program.create(
@@ -42,8 +34,33 @@ require 'faker'
     )
 }
 
+puts "Seeding favorites..."
+
 30.times{
     Favorite.create( 
+        user_id: User.all.ids.sample, 
+        program_id: Program.all.ids.sample, 
         reason: Faker::Adjective.positive
     )
 }
+
+puts "Seeding comments..."
+
+50.times{
+    Comment.create( 
+        user_id: User.all.ids.sample, 
+        program_id: Program.all.ids.sample, 
+        letter: Faker::Movies::PrincessBride.quote
+    )
+}
+
+puts "Seeding responses..."
+
+50.times{
+    Response.create( 
+        user_id: User.all.ids.sample, 
+        comment_id: Program.all.ids.sample, 
+        note: Faker::Hacker.say_something_smart
+    )
+}
+
