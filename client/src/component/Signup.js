@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { Container } from 'semantic-ui-react';
 import { Card, Form, Label, Button, Input, Checkbox } from 'semantic-ui-react';
 
-const Signup = () => {
+function Signup({setUserInfo}) {
     const [form, setFormData] = useState({
         name: "Name",
         username: "",
@@ -65,17 +65,11 @@ const Signup = () => {
                 <label>Password</label>
                 <input placeholder='password123' onChange={(e) => setFormData({...form, password: e.target.value})} value = {form.password}/>
             </Form.Field>
-            
-{/* 
-            <Form.Field>
-                <Checkbox label='I agree to the Terms and Conditions' />
-            </Form.Field> */}
 
             <Button type='submit'>Submit</Button>
         </Form>
             
-    </Container>
-        
+    </Container>    
   )
 }
 

@@ -1,4 +1,4 @@
-import { Card } from "semantic-ui-react";
+import { Card, Container, Icon } from "semantic-ui-react";
 import { useEffect, useState } from 'react'
 
 function ResponsesCard({text, id}){
@@ -26,12 +26,15 @@ function ResponsesCard({text, id}){
     console.log(thisResponse)
 
     return(
+        <Container textAlign="right"> 
             <Card>
                 <Card.Content  class="header">
-                    <h4>Response from user {thisResponse.user.username}:</h4>
+                    <h4> <Icon name='long arrow alternate right' /> Response from user {thisResponse.user.username}:</h4>
                     {text}
                 </Card.Content >
             </Card>
+        </Container>
+
     )
 }
 

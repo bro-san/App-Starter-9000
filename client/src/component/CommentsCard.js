@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Container, Card } from "semantic-ui-react";
+import { Container, Card, Button } from "semantic-ui-react";
 import ResponsesCard from './ResponsesCard';
 
 function CommentsCard({post, id}){
@@ -35,16 +35,21 @@ function CommentsCard({post, id}){
 
     return(
         <Container textAlign="left"> 
+            <br></br>
             <Card>
                 <Card.Content  class="header">
                     <h4>Comment from user {thisComment.user.username}:</h4>
                     {post}
                 </Card.Content >
+                <Button >
+                        Add Your Own Response!
+                </Button>
             </Card>
-
+            <br></br>
             <Card.Group itemsPerRow={1}>
                 {responsesList}
             </Card.Group>
+            <br></br>
         </Container>
     )
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
-import { Container, Card } from "semantic-ui-react";
+import { Container, Card, Button } from "semantic-ui-react";
 import CommentsCard from './CommentsCard';
 
 function ProgramPage() {
@@ -44,7 +44,9 @@ function ProgramPage() {
         <img src={thisApp.icon} alt="app's icon"/>
         <h4>Category: <u>{thisApp.category}</u></h4> 
         <h4>Rating: <em>{thisApp.rating}</em></h4> 
-
+        <Button >
+            <h2><em>Add Your Own Comment!</em></h2>
+        </Button>
         <Card.Group itemsPerRow={1}>
             {commentsList}
         </Card.Group>

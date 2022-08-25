@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Menu, Header, Button }  from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
@@ -30,11 +29,12 @@ function NavBar({user, setUser}) {
                 </Button>
 
                <Menu.Item class='navbar'>
-                  <Button>
-                     <NavLink exact to='/signup'>
+                  {user==null || user == false ? <Button>
+                  <NavLink exact to='/login'>   
                      Registration
-                     </NavLink>
-                  </Button>
+                  </NavLink> 
+                  </Button> :
+                  null}
                </Menu.Item>
 
                <Menu.Item class='navbar'>
@@ -46,6 +46,15 @@ function NavBar({user, setUser}) {
                   <Button onClick={(e)=> onLogout(e)}>
                      Resignation
                   </Button>}
+               </Menu.Item>
+
+               <Menu.Item class='navbar'>
+                  {user==null || user == false ? null :
+                     <Button>
+                        <NavLink exact to='/users/:id'>   
+                           Personalization
+                        </NavLink> 
+                     </Button>}
                </Menu.Item>
         </Menu>
   </Header>

@@ -3,7 +3,7 @@ import { Container } from 'semantic-ui-react';
 import { Card, Form, Label, Button, Input } from 'semantic-ui-react';
 import { useHistory } from "react-router-dom";
 
-const Login = ({setUser}) => {
+const Login = ({setUser, setUserInfo}) => {
 
   const [form, setForm] = useState({
     username: " ",
