@@ -12,14 +12,15 @@ function UserPage() {
     const {id} = params
 
     useEffect(()=>{
-        fetch(`/users/${`id`}`)
+        fetch(`/users/${id}`)
         .then(res => {
             if(res.ok){
                 res.json().then(user => {
                     setThisUser(user)
                     setLoading(false)
                 })
-            }else {
+            }
+            else {
                 res.json().then(data => setErrors(data.error))
             }
         })
@@ -28,7 +29,7 @@ function UserPage() {
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
 
-    console.log(thisUser)
+    console.log("The thisUser info...", thisUser)
 
     const appsList = thisUser.favorites.map(fav => {
         return <FavAppCard key={fav.id}

@@ -15,7 +15,12 @@ import ProgramPage from './component/ProgramPage';
 function App() {
   const [user, setUser] = useState(false);
   const [userInfo, setUserInfo] = useState({});
-
+  
+  function updateUser(user) {
+    setUserInfo(user)
+    setUser(user)
+  }
+    
   const [store, setStore] = useState("");
 
 
@@ -26,11 +31,11 @@ function App() {
     </Header>
     <Switch>
         <Route  path="/signup">
-          <Signup setUserInfo={setUserInfo}/>
+          <Signup updateUser={updateUser}/>
         </Route>
         
         <Route exact path="/login">
-          <Login setUser = {setUser} setUserInfo={setUserInfo}/>
+          <Login updateUser={updateUser}/>
         </Route>
 
         <Route  exact path="/users/:id">
