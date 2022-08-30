@@ -30,16 +30,16 @@ puts "Seeding programs..."
         rating: Faker::Number.between(from: 0.0, to: 5.0), 
         description: Faker::TvShows::RickAndMorty.quote,
         icon: Faker::Avatar.image,
-        screenshot1: Faker::LoremFlickr.image(search_terms: ['sports'])
-        screenshot2: Faker::LoremFlickr.image(search_terms: ['cars'])
-        screenshot3: Faker::LoremFlickr.image(search_terms: ['games'])
-        screenshot4: Faker::LoremFlickr.image(search_terms: ['cats'])
-        screenshot5: Faker::LoremFlickr.image(search_terms: ['dogs'])
-        screenshot6: Faker::LoremFlickr.image(search_terms: ['computers'])
-        screenshot7: Faker::LoremFlickr.image(search_terms: ['apps'])
-        screenshot8: Faker::LoremFlickr.image(search_terms: ['jets'])
-        screenshot9: Faker::LoremFlickr.image(search_terms: ['apple'])
-        screenshot10: Faker::LoremFlickr.image(search_terms: ['google'])
+        screenshot_one: Faker::LoremFlickr.image(search_terms: ['sports']),
+        screenshot_two: Faker::LoremFlickr.image(search_terms: ['cars']),
+        screenshot_three: Faker::LoremFlickr.image(search_terms: ['games']),
+        screenshot_four: Faker::LoremFlickr.image(search_terms: ['cats']),
+        screenshot_five: Faker::LoremFlickr.image(search_terms: ['dogs']),
+        screenshot_six: Faker::LoremFlickr.image(search_terms: ['computers']),
+        screenshot_seven: Faker::LoremFlickr.image(search_terms: ['apps']),
+        screenshot_eight: Faker::LoremFlickr.image(search_terms: ['jets']),
+        screenshot_nine: Faker::LoremFlickr.image(search_terms: ['apple']),
+        screenshot_ten: Faker::LoremFlickr.image(search_terms: ['google'])
     )
 }
 

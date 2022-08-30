@@ -1,3 +1,3 @@
 class ProgramSerializer < ActiveModel::Serializer
-  attributes :id, :name, :link, :category, :rating, :description, :icon, :screenshot1, :screenshot2, :screenshot3, :screenshot4, :screenshot5, :screenshot6, :screenshot7, :screenshot8, :screenshot9, :screenshot10
+  attributes :id, :name, :link, :category, :rating, :description, :icon, :screenshot_one, :screenshot_two, :screenshot_three, :screenshot_four, :screenshot_five, :screenshot_six, :screenshot_seven, :screenshot_eight, :screenshot_nine, :screenshot_ten
 end
