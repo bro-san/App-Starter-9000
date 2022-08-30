@@ -21,7 +21,6 @@ function AppsList({store}){
     const terms = ['cool', 'dumb', 'pretty', 'fast', 'popular', 'trendy', 'sophisticated', 'advanced', 'hacks', 'steamy', 'old', 'vague']
     let term = terms[Math.floor(Math.random()*terms.length)];
 
-
     useEffect(() => {
         fetch(`https://app-stores.p.rapidapi.com/search?store=${store}&term=${term}&language=en`, options)
         .then(response => response.json())

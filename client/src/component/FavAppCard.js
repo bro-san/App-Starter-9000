@@ -30,7 +30,7 @@ function FavAppCard({id, handleUnfavorite}){
         fetch(`http://localhost:3000/favorites/${id}`, {
             method: "DELETE"
         })
-        // handleUnfavorite(id)  
+        handleUnfavorite(id)  
     }
     return(
         <Card>

@@ -12,7 +12,7 @@ function UserPage() {
     const {id} = params
 
     useEffect(()=>{
-        fetch(`/users/${id}`)
+        fetch(`/users/${`id`}`)
         .then(res => {
             if(res.ok){
                 res.json().then(user => {
