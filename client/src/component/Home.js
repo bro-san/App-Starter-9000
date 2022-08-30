@@ -10,7 +10,7 @@ function Home({setStore, userInfo}) {
         setStore(value.toLowerCase())
     }
     
-    console.log(userInfo)
+    console.log("current user info:", userInfo)
     
     return (
 

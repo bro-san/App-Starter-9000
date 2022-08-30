@@ -4,7 +4,7 @@ import { Container, Card } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import config from "../config";
 
-function AppsList({store}){
+function AppsList({store, userInfo}){
 
     const secretkey = config.SECRET_API_KEY;
 
@@ -21,7 +21,6 @@ function AppsList({store}){
     const terms = ['cool', 'dumb', 'pretty', 'fast', 'popular', 'trendy', 'sophisticated', 'advanced', 'hacks', 'steamy', 'old', 'vague']
     let term = terms[Math.floor(Math.random()*terms.length)];
 
-
     useEffect(() => {
         fetch(`https://app-stores.p.rapidapi.com/search?store=${store}&term=${term}&language=en`, options)
         .then(response => response.json())
@@ -29,19 +28,12 @@ function AppsList({store}){
         .catch(err => console.error(err));
     }, [])
 
-     console.log(apps)
+     console.log("Fetch pulled these apps:", apps)
 
      const appsList = apps.map(app => {
         return <AppCard key={app.id}
-        id={app.id}
-        link={app.url}
-        name={app.name}
-        category={app.category}
-        ratings={app.ratings}
-        description={app.description}
-        icons={app.icons}
-        screenshots={app.screenshots}
-        // handleDelete={handleDelete}
+        app={app}
+        userInfo={userInfo}
         />
     })
 

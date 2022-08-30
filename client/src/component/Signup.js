@@ -1,13 +1,16 @@
 import React, {useState} from 'react'
-import { Container } from 'semantic-ui-react';
-import { Card, Form, Label, Button, Input, Checkbox } from 'semantic-ui-react';
+import { Container, Form, Button } from 'semantic-ui-react';
+import { useHistory } from "react-router-dom";
 
-function Signup({setUserInfo}) {
+function Signup({updateUser}) {
+    
+    const history = useHistory();
+
     const [form, setFormData] = useState({
-        name: "Name",
+        name: "",
         username: "",
         email: "",
-        password: "Password",
+        password: "",
         admin: "false"
 
     })
@@ -31,7 +34,11 @@ function Signup({setUserInfo}) {
           )
         })
         .then(response => response.json())
-        .then(json => console.log(json))
+        .then(user => {
+            console.log("This user just signed up", user)
+            updateUser(user)
+            history.push(`/users/${user.id}`)
+        })
       }
 
 

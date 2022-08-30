@@ -30,7 +30,7 @@ function FavAppCard({id, handleUnfavorite}){
         fetch(`http://localhost:3000/favorites/${id}`, {
             method: "DELETE"
         })
-        // handleUnfavorite(id)  
+        handleUnfavorite(id)  
     }
     return(
         <Card>
@@ -60,7 +60,7 @@ function FavAppCard({id, handleUnfavorite}){
 
                 <Card.Content class="header">
                     <h4>Screenshot:</h4>
-                    <img src={thisFav.program.screenshot} alt="app's screenshot #1"/>
+                    <img src={thisFav.program.screenshots} alt="app's screenshot #1"/>
                 </Card.Content >
                 <Button >
                     <Link to={`/programs/${thisFav.program.id}`}>   
