@@ -30,7 +30,16 @@ puts "Seeding programs..."
         rating: Faker::Number.between(from: 0.0, to: 5.0), 
         description: Faker::TvShows::RickAndMorty.quote,
         icon: Faker::Avatar.image,
-        screenshot: Faker::LoremFlickr.image
+        screenshot1: Faker::LoremFlickr.image(search_terms: ['sports'])
+        screenshot2: Faker::LoremFlickr.image(search_terms: ['cars'])
+        screenshot3: Faker::LoremFlickr.image(search_terms: ['games'])
+        screenshot4: Faker::LoremFlickr.image(search_terms: ['cats'])
+        screenshot5: Faker::LoremFlickr.image(search_terms: ['dogs'])
+        screenshot6: Faker::LoremFlickr.image(search_terms: ['computers'])
+        screenshot7: Faker::LoremFlickr.image(search_terms: ['apps'])
+        screenshot8: Faker::LoremFlickr.image(search_terms: ['jets'])
+        screenshot9: Faker::LoremFlickr.image(search_terms: ['apple'])
+        screenshot10: Faker::LoremFlickr.image(search_terms: ['google'])
     )
 }
 

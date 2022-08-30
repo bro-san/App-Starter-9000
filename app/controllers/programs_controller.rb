@@ -18,6 +18,6 @@ class ProgramsController < ApplicationController
     private
 
     def program_params
-        params.permit(:id, :name, :link, :category, :rating, :description, :icon, :screenshot)
+        params.permit(:id, :name, :link, :category, :rating, :description, :icon, :screenshot1, :screenshot2, :screenshot3, :screenshot4, :screenshot5, :screenshot6, :screenshot7, :screenshot8, :screenshot9, :screenshot10)
     end
 end

@@ -51,7 +51,7 @@ function App() {
         </Route>
 
         <Route  exact path="/fork/apps">
-          <AppsList store={store}/>
+          <AppsList store={store} userInfo={userInfo}/>
         </Route>
 
         <Route exact path="/home">

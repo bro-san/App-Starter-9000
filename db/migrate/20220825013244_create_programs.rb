@@ -7,7 +7,16 @@ class CreatePrograms < ActiveRecord::Migration[6.1]
       t.string :rating
       t.string :description
       t.string :icon
-      t.string :screenshot
+      t.string :screenshot1
+      t.string :screenshot2
+      t.string :screenshot3
+      t.string :screenshot4
+      t.string :screenshot5
+      t.string :screenshot6
+      t.string :screenshot7
+      t.string :screenshot8
+      t.string :screenshot9
+      t.string :screenshot10
 
       t.timestamps
     end
