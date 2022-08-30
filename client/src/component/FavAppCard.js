@@ -60,7 +60,12 @@ function FavAppCard({id, handleUnfavorite}){
 
                 <Card.Content class="header">
                     <h4>Screenshot:</h4>
-                    <img src={thisFav.program.screenshots} alt="app's screenshot #1"/>
+                    <img src={thisFav.program.screenshot_one} alt="app's screenshot #1"/>
+                    <img src={thisFav.program.screenshot_two} alt="app's screenshot #2"/>
+                    <img src={thisFav.program.screenshot_three} alt="app's screenshot #3"/>
+                    <img src={thisFav.program.screenshot_four} alt="app's screenshot #4"/>
+                    <img src={thisFav.program.screenshot_five} alt="app's screenshot #5"/>
+
                 </Card.Content >
                 <Button >
                     <Link to={`/programs/${thisFav.program.id}`}>   

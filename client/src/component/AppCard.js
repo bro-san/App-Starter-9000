@@ -35,12 +35,9 @@ function AppCard({app, userInfo}){
                 "screenshot10": screenshot10,
             }
           )
-        })
-        .then(response => response.json())
-        .then(app => {
+        }).then(response => response.json()).then(app => {
             console.log("This app was just fav'd and added:", app)
-        })
-        .then(
+        }).then(
             fetch('/favorites', {
             method: "POST",
             headers: {
@@ -53,10 +50,10 @@ function AppCard({app, userInfo}){
                   "program_id": app.id,
               }
             )
-          })
-          .then(response => response.json())
-          .then(fav => {
+          }).then(response => response.json()).then(fav => {
               console.log("This favorite was just added", fav)
+              console.log("userInfo id:", userInfo.id)
+              console.log("program id:", app.id)
           })
         )
     }

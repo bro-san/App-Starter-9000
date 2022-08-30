@@ -28,7 +28,7 @@ function AppsList({store, userInfo}){
         .catch(err => console.error(err));
     }, [])
 
-     console.log("Fetch pulled these apps:", apps)
+     console.log("These apps have been fetched:", apps)
 
      const appsList = apps.map(app => {
         return <AppCard key={app.id}
