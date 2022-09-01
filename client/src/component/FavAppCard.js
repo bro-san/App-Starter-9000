@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { Card, Button, Icon } from "semantic-ui-react";
 
-function FavAppCard({id, handleUnfavorite}){
+function FavAppCard({id, handleUnfavorite, updateAppDetails}){
     const [thisFav, setThisFav] = useState()
     const [loading, setLoading] = useState(true)
     const [errors, setErrors] = useState(false)
@@ -13,6 +13,7 @@ function FavAppCard({id, handleUnfavorite}){
             if(res.ok){
                 res.json().then(fav => {
                     setThisFav(fav)
+                    updateAppDetails(fav.program)
                     setLoading(false)
                 })
             }else {
@@ -21,10 +22,10 @@ function FavAppCard({id, handleUnfavorite}){
         })
     },[])
 
-    if(loading) return <h1>Loading</h1>
+    if(loading) return <h1><em>You haven't favorited any apps!</em></h1>
     if(errors) return <h1>{errors}</h1>
 
-    console.log(thisFav)
+    console.log("thisFav data:", thisFav)
 
     function handleClick() {
         fetch(`http://localhost:3000/favorites/${id}`, {
@@ -69,7 +70,7 @@ function FavAppCard({id, handleUnfavorite}){
                 </Card.Content >
                 <Button >
                     <Link to={`/programs/${thisFav.program.id}`}>   
-                        App Comments
+                        App's Details
                      </Link>
                 </Button>
                 <Button animated onClick={handleClick}>

@@ -1,17 +1,18 @@
 import FavAppCard from "./FavAppCard";
 import { Container, Card } from "semantic-ui-react";
 
-function UserPage({userInfo}) {
+function UserPage({userInfo, updateAppDetails}) {
 
-    // const appsList = userInfo.favorites.map(fav => {
-    //     return <FavAppCard key={fav.id}
-    //     id={fav.id}
-    //     handleUnfavorite={handleUnfavorite}
-    //     />
-    // })
+    const appsList = userInfo.favorites.map(fav => {
+        return <FavAppCard key={fav.id}
+        id={fav.id}
+        handleUnfavorite={handleUnfavorite}
+        updateAppDetails={updateAppDetails}
+        />
+    })
 
     function handleUnfavorite() {
-        console.log("Removed!")
+        console.log("hanldeUnfavorite -> Removed!")
       }
 
     return (
@@ -19,7 +20,7 @@ function UserPage({userInfo}) {
         <h1>Hello, {userInfo.name}!</h1>
         <h3>Your Favorited Apps:</h3>
         <Card.Group itemsPerRow={1}>
-            {"appsList"}
+            {appsList}
         </Card.Group>
         </Container>
     );

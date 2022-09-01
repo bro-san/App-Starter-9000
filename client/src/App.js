@@ -6,7 +6,7 @@ import NavBar from './component/NavBar'
 import Signup from "./component/Signup";
 import Login from "./component/Login";
 import Home from './component/Home';
-import AppPage from './component/AppPage';
+import AppFilterPage from './component/AppFilterPage';
 import AppsList from './component/AppsList';
 import UserPage from './component/UserPage';
 import ProgramPage from './component/ProgramPage';
@@ -15,10 +15,15 @@ import ProgramPage from './component/ProgramPage';
 function App() {
   const [user, setUser] = useState(false);
   const [userInfo, setUserInfo] = useState({});
-  
+  const [appDetails, SetAppDetails] = useState({})
+
   function updateUser(user) {
     setUserInfo(user)
     setUser(user)
+  }
+
+  function updateAppDetails(app) {
+    SetAppDetails(app)
   }
     
   const [store, setStore] = useState("");
@@ -39,19 +44,19 @@ function App() {
         </Route>
 
         <Route  exact path="/users/:id">
-          <UserPage userInfo={userInfo}/>
+          <UserPage userInfo={userInfo} updateAppDetails={updateAppDetails}/>
         </Route>
 
         <Route  exact path="/programs/:id">
-          <ProgramPage />
+          <ProgramPage appDetails={appDetails} userInfo={userInfo}/>
         </Route>
 
         <Route  exact path="/fork">
-          <AppPage/>
+          <AppFilterPage/>
         </Route>
 
         <Route  exact path="/fork/apps">
-          <AppsList store={store} userInfo={userInfo}/>
+          <AppsList store={store} userInfo={userInfo} updateAppDetails={updateAppDetails} appDetails={appDetails}/>
         </Route>
 
         <Route exact path="/home">

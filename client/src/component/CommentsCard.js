@@ -24,7 +24,7 @@ function CommentsCard({post, id}){
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
 
-    console.log(thisComment)
+    console.log("thisComment data:", thisComment)
     const responsesList = thisComment.responses.map(response => {
         return <ResponsesCard key={response.id}
         id={response.id}

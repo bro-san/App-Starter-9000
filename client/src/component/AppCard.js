@@ -1,11 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import { Card, Button, Icon } from "semantic-ui-react";
+import { Card, Button } from "semantic-ui-react";
 
-function AppCard({app, userInfo}){
-    
-    const {id, url, name, category, ratings, description, icons, screenshots} = app
-    const {screenshot1, screenshot2, screenshot3, screenshot4, screenshot5, screenshot6, screenshot7, screenshot8, screenshot9, screenshot10} = screenshots
+function AppCard({app, updateAppDetails, appDetails}){
+
+    const {name, category, ratings, icons, screenshots} = app
+    const screenshot_one =  screenshots[0] 
+    const screenshot_two = screenshots[1] 
+    const screenshot_three = screenshots[2] 
+    const screenshot_four = screenshots[3] 
+    const screenshot_five = screenshots[4] 
+    const screenshot_six = screenshots[5] 
+    const screenshot_seven = screenshots[6] 
+    const screenshot_eight = screenshots[7] 
+    const screenshot_nine = screenshots[8] 
+    const screenshot_ten = screenshots[10] 
 
     function handleClick(e) {
         e.preventDefault()
@@ -23,39 +32,41 @@ function AppCard({app, userInfo}){
                 "rating": app.ratings.average,
                 "description": app.description,
                 "icon": app.icons.medium,
-                "screenshot1": screenshot1,
-                "screenshot2": screenshot2,
-                "screenshot3": screenshot3,
-                "screenshot4": screenshot4,
-                "screenshot5": screenshot5,
-                "screenshot6": screenshot6,
-                "screenshot7": screenshot7,
-                "screenshot8": screenshot8,
-                "screenshot9": screenshot9,
-                "screenshot10": screenshot10,
+                "screenshot_one": screenshot_one,
+                "screenshot_two": screenshot_two,
+                "screenshot_three": screenshot_three,
+                "screenshot_four": screenshot_four,
+                "screenshot_five": screenshot_five,
+                "screenshot_six": screenshot_six,
+                "screenshot_seven": screenshot_seven,
+                "screenshot_eight": screenshot_eight,
+                "screenshot_nine": screenshot_nine,
+                "screenshot_ten": screenshot_ten,
             }
           )
         }).then(response => response.json()).then(app => {
-            console.log("This app was just fav'd and added:", app)
-        }).then(
-            fetch('/favorites', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify(
-              {
-                  "user_id": userInfo.id,
-                  "program_id": app.id,
-              }
-            )
-          }).then(response => response.json()).then(fav => {
-              console.log("This favorite was just added", fav)
-              console.log("userInfo id:", userInfo.id)
-              console.log("program id:", app.id)
-          })
-        )
+            updateAppDetails(app)
+            console.log("This app was just added to db:", app)
+        })
+        // .then(
+        //     fetch('/favorites', {
+        //     method: "POST",
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       Accept: "application/json",
+        //     },
+        //     body: JSON.stringify(
+        //       {
+        //           "user_id": userInfo.id,
+        //           "program_id": app.id,
+        //       }
+        //     )
+        //   }).then(response => response.json()).then(fav => {
+        //       console.log("This favorite was just added", fav)
+        //       console.log("userInfo id:", userInfo.id)
+        //       console.log("program id:", app.id)
+        //   })
+        // )
     }
 
     return(
@@ -65,9 +76,9 @@ function AppCard({app, userInfo}){
                     <img src={icons.medium} alt="app's icon"/>
                 </Card.Content >
 
-                <Card.Content class="header">
+                {/* <Card.Content class="header">
                     <a href={url}>Store Link</a>
-                </Card.Content>
+                </Card.Content> */}
 
                 <Card.Content  class="header">
                     <h4>Category:</h4> 
@@ -79,28 +90,28 @@ function AppCard({app, userInfo}){
                     {ratings.average}
                 </Card.Content >
 
-                <Card.Content  class="header">
+                {/* <Card.Content  class="header">
                 <h4>Description:</h4>
                     {description}
-                </Card.Content>
+                </Card.Content> */}
 
                 <Card.Content class="header">
                     <h4>Screenshot:</h4>
                     <img src={screenshots[0]} alt="app's screenshot #1"/>
-                    <img src={screenshots[1]} alt="app's screenshot #2"/>
-                    <img src={screenshots[2]} alt="app's screenshot #3"/>
+                    {/* <img src={screenshots[1]} alt="app's screenshot #2"/>
+                    <img src={screenshots[2]} alt="app's screenshot #3"/> */}
                 </Card.Content >
-                <Button >
-                    <Link to={`/programs/${id}`}>   
-                        App Comments
+                <Button onClick={handleClick}>
+                    <Link to={`/programs/${appDetails.id}`}>   
+                        App Details
                      </Link>
                 </Button>
-                <Button animated onClick={handleClick}>
+                {/* <Button animated onClick={handleClick}>
                     <Button.Content visible >Favorite?</Button.Content>
                     <Button.Content hidden>
                         <Icon name='heart' />
                     </Button.Content>
-                </Button>
+                </Button> */}
         </Card>
     )
 }
