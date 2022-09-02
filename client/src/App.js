@@ -10,6 +10,7 @@ import AppFilterPage from './component/AppFilterPage';
 import AppsList from './component/AppsList';
 import UserPage from './component/UserPage';
 import ProgramPage from './component/ProgramPage';
+import CommunityPage from './component/CommunityPage';
 
 
 function App() {
@@ -41,6 +42,10 @@ function App() {
         
         <Route exact path="/login">
           <Login updateUser={updateUser}/>
+        </Route>
+
+        <Route exact path="/community">
+          <CommunityPage userInfo={userInfo} appDetails={appDetails} updateAppDetails={updateAppDetails}/>
         </Route>
 
         <Route  exact path="/users/:id">

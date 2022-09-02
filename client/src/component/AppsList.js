@@ -45,7 +45,7 @@ function AppsList({store, userInfo, updateAppDetails, appDetails}){
     return(
         <Container textAlign="left"> 
         <h1>How about these {noun}?</h1>
-        <Card.Group itemsPerRow={1}>
+        <Card.Group itemsPerRow={3}>
             {appsList}
         </Card.Group>
     </Container>
