@@ -29,6 +29,12 @@ function NavBar({user, setUser, userInfo, setUserInfo}) {
                      </NavLink>
                 </Button>
 
+                <Button class='ui button'>
+                     <NavLink exact to='/community'>   
+                     Collaboration
+                     </NavLink>
+                </Button>
+
                <Menu.Item class='navbar'>
                   {user==null || user == false ? <Button>
                   <NavLink exact to='/signup'>   

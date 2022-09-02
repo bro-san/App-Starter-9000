@@ -48,25 +48,6 @@ function AppCard({app, updateAppDetails, appDetails}){
             updateAppDetails(app)
             console.log("This app was just added to db:", app)
         })
-        // .then(
-        //     fetch('/favorites', {
-        //     method: "POST",
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //       Accept: "application/json",
-        //     },
-        //     body: JSON.stringify(
-        //       {
-        //           "user_id": userInfo.id,
-        //           "program_id": app.id,
-        //       }
-        //     )
-        //   }).then(response => response.json()).then(fav => {
-        //       console.log("This favorite was just added", fav)
-        //       console.log("userInfo id:", userInfo.id)
-        //       console.log("program id:", app.id)
-        //   })
-        // )
     }
 
     return(
