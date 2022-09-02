@@ -33,6 +33,6 @@ class ResponsesController < ApplicationController
     end
 
     def response_params
-        params.permit(:id, :note)
+        params.permit(:id, :note, :user_id, :comment_id)
     end
 end
