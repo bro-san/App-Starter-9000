@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Container, Card, Button } from "semantic-ui-react";
 import ResponsesCard from './ResponsesCard';
 
-function CommentsCard({post, id}){
+function CommentsCard({post, id, setUpdatedApp}){
     const [thisComment, setThisComment] = useState()
     const [loading, setLoading] = useState(true)
     const [errors, setErrors] = useState(false)
@@ -33,6 +33,13 @@ function CommentsCard({post, id}){
         />
     })
 
+    function handleDelete() {
+        fetch(`http://localhost:3000/comments/${id}`, {
+            method: "DELETE"
+        })
+        setUpdatedApp({})
+    }
+
     return(
         <Container textAlign="left"> 
             <br></br>
@@ -41,6 +48,12 @@ function CommentsCard({post, id}){
                     <h4>Comment from user {thisComment.user.username}:</h4>
                     {post}
                 </Card.Content >
+                <Button >
+                        Edit Comment
+                </Button>
+                <Button onClick={handleDelete}>
+                        Delete Comment
+                </Button>
                 <Button >
                         Add Your Own Response!
                 </Button>

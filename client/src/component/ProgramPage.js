@@ -6,8 +6,8 @@ import { useParams } from "react-router-dom";
 
 function ProgramPage({appDetails, userInfo, updateAppDetails}) {
     
-const params = useParams()
-
+    const params = useParams()
+    // const [updatedComment, setUpdatedComment] = useState("this") 
     const [updatedApp, setUpdatedApp] = useState ({})
 
     useEffect(()=>{
@@ -76,7 +76,8 @@ const params = useParams()
                     return <CommentsCard key={comment.id}
                     id={comment.id}
                     post={comment.letter}
-                    // handleDelete={handleDelete}
+                    setUpdatedApp={setUpdatedApp}
+                    // setUpdatedComment={setUpdatedComment}
                     />
             })
         } else {

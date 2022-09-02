@@ -1,15 +1,17 @@
 import FavAppCard from "./FavAppCard";
 import { Container, Card } from "semantic-ui-react";
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 
 function UserPage({userInfo, updateAppDetails, updateUser }) {
 
+  const [updateFavs, setUpdateFavs] = useState({})
+  
   useEffect(()=>{
     fetch(`/users/${userInfo.id}`)
     .then(res => res.json())
     .then(data => updateUser(data))
-  }, [])
+  }, [updateFavs])
 
     const appsList = userInfo.favorites.map(fav => {
         return <FavAppCard key={fav.id}
@@ -19,8 +21,9 @@ function UserPage({userInfo, updateAppDetails, updateUser }) {
         />
     })
 
-    function handleUnfavorite() {
+    function handleUnfavorite(id) {
         console.log("hanldeUnfavorite -> Removed!")
+        setUpdateFavs({id})
       }
 
     return (
