@@ -1,7 +1,15 @@
 import FavAppCard from "./FavAppCard";
 import { Container, Card } from "semantic-ui-react";
+import { useEffect } from 'react'
 
-function UserPage({userInfo, updateAppDetails}) {
+
+function UserPage({userInfo, updateAppDetails, updateUser }) {
+
+  useEffect(()=>{
+    fetch(`/users/${userInfo.id}`)
+    .then(res => res.json())
+    .then(data => updateUser(data))
+  }, [])
 
     const appsList = userInfo.favorites.map(fav => {
         return <FavAppCard key={fav.id}

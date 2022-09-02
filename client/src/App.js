@@ -32,7 +32,7 @@ function App() {
   return (
   <>
     <Header>
-        <NavBar user = {user} setUser = {setUser} userInfo={userInfo}/>
+        <NavBar user = {user} setUser = {setUser} userInfo={userInfo} setUserInfo={setUserInfo}/>
     </Header>
     <Switch>
         <Route  path="/signup">
@@ -44,11 +44,11 @@ function App() {
         </Route>
 
         <Route  exact path="/users/:id">
-          <UserPage userInfo={userInfo} updateAppDetails={updateAppDetails}/>
+          <UserPage updateUser={updateUser} userInfo={userInfo} updateAppDetails={updateAppDetails}/>
         </Route>
 
         <Route  exact path="/programs/:id">
-          <ProgramPage appDetails={appDetails} userInfo={userInfo}/>
+          <ProgramPage appDetails={appDetails} userInfo={userInfo} updateAppDetails={updateAppDetails}/>
         </Route>
 
         <Route  exact path="/fork">
