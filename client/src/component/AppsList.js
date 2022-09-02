@@ -4,7 +4,7 @@ import { Container, Card } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import config from "../config";
 
-function AppsList({store, userInfo}){
+function AppsList({store, userInfo, updateAppDetails, appDetails}){
 
     const secretkey = config.SECRET_API_KEY;
 
@@ -34,6 +34,8 @@ function AppsList({store, userInfo}){
         return <AppCard key={app.id}
         app={app}
         userInfo={userInfo}
+        updateAppDetails={updateAppDetails}
+        appDetails={appDetails}
         />
     })
 

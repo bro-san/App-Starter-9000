@@ -2,7 +2,7 @@ import React from "react";
 import { Header, Container, Menu } from "semantic-ui-react";
 // import { Image } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
-function AppPage({store}) {
+function AppFilterPage({store}) {
 
     return (
 
@@ -36,4 +36,4 @@ function AppPage({store}) {
     );
   }
 
-export default AppPage;
+export default AppFilterPage;

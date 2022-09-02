@@ -23,7 +23,7 @@ function ResponsesCard({text, id}){
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
 
-    console.log(thisResponse)
+    console.log("thisResponse data:", thisResponse)
 
     return(
         <Container textAlign="right"> 

@@ -2,7 +2,7 @@ import { Menu, Header, Button }  from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
-function NavBar({user, setUser, userInfo}) {
+function NavBar({user, setUser, userInfo, setUserInfo}) {
     const history = useHistory();
   
     function onLogout(e){
@@ -17,6 +17,7 @@ function NavBar({user, setUser, userInfo}) {
               history.push("/login")
           }
         )}})
+        setUserInfo("no user")
     }
 
     return (
