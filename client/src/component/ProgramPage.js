@@ -77,6 +77,7 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
                     id={comment.id}
                     post={comment.letter}
                     setUpdatedApp={setUpdatedApp}
+                    userInfo={userInfo}
                     // setUpdatedComment={setUpdatedComment}
                     />
             })

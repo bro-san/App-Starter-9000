@@ -28,7 +28,7 @@ function FavAppCard({id, handleUnfavorite, updateAppDetails}){
     console.log("thisFav data:", thisFav)
 
     function handleClick() {
-        fetch(`http://localhost:3000/favorites/${id}`, {
+        fetch(`/favorites/${id}`, {
             method: "DELETE"
         })
         handleUnfavorite(id)
