@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import { Card, Button, Icon } from "semantic-ui-react";
+import { Card, Button, Icon, Image } from "semantic-ui-react";
 
 function FavAppCard({id, handleUnfavorite, updateAppDetails}){
     const [thisFav, setThisFav] = useState()
@@ -41,7 +41,7 @@ function FavAppCard({id, handleUnfavorite, updateAppDetails}){
                 </Card.Content >
 
                 <Card.Content class="header">
-                    <a href={thisFav.program.link}>Store Link</a>
+                    <a href={thisFav.program.link} target="_blank" rel="noopener noreferrer">Store Link</a>
                 </Card.Content>
 
                 <Card.Content  class="header">
@@ -61,11 +61,11 @@ function FavAppCard({id, handleUnfavorite, updateAppDetails}){
 
                 <Card.Content class="header">
                     <h4>Screenshot:</h4>
-                    <img src={thisFav.program.screenshot_one} alt="app's screenshot #1"/>
-                    <img src={thisFav.program.screenshot_two} alt="app's screenshot #2"/>
-                    <img src={thisFav.program.screenshot_three} alt="app's screenshot #3"/>
-                    <img src={thisFav.program.screenshot_four} alt="app's screenshot #4"/>
-                    <img src={thisFav.program.screenshot_five} alt="app's screenshot #5"/>
+                    <Image src={thisFav.program.screenshot_one} alt="app's screenshot #1" size='medium'/>
+                    <Image src={thisFav.program.screenshot_two} alt="app's screenshot #2" size='medium'/>
+                    <Image src={thisFav.program.screenshot_three} alt="app's screenshot #3" size='medium'/>
+                    <Image src={thisFav.program.screenshot_four} alt="app's screenshot #4" size='medium'/>
+                    <Image src={thisFav.program.screenshot_five} alt="app's screenshot #5" size='medium'/>
 
                 </Card.Content >
                 <Button >

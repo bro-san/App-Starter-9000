@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import { Card, Button } from "semantic-ui-react";
+import { Card, Button, Image } from "semantic-ui-react";
 
 function AppCard({app, updateAppDetails, appDetails}){
 
@@ -54,7 +54,7 @@ function AppCard({app, updateAppDetails, appDetails}){
         <Card>
                 <Card.Content class="header">
                     <h1>{name}</h1>
-                    <img src={icons.medium} alt="app's icon"/>
+                    <Image src={icons.medium} alt="app's icon"/>
                 </Card.Content >
 
                 {/* <Card.Content class="header">
@@ -78,7 +78,7 @@ function AppCard({app, updateAppDetails, appDetails}){
 
                 <Card.Content class="header">
                     <h4>Screenshot:</h4>
-                    <img src={screenshots[0]} alt="app's screenshot #1"/>
+                    <Image src={screenshots[0]} alt="app's screenshot #1" size='small' />
                     {/* <img src={screenshots[1]} alt="app's screenshot #2"/>
                     <img src={screenshots[2]} alt="app's screenshot #3"/> */}
                 </Card.Content >
