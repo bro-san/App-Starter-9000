@@ -57,7 +57,7 @@ function App() {
         </Route>
 
         <Route  exact path="/fork">
-          <AppFilterPage/>
+          <AppFilterPage setStore={setStore} store={store}/>
         </Route>
 
         <Route  exact path="/fork/apps">

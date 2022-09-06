@@ -4,7 +4,7 @@ import { Container, Card } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import config from "../config";
 
-function AppsList({store, userInfo, updateAppDetails, appDetails}){
+function AppsList({store, userInfo, updateAppDetails, appDetails, term}){
 
     const secretkey = config.SECRET_API_KEY;
 
@@ -17,9 +17,6 @@ function AppsList({store, userInfo, updateAppDetails, appDetails}){
             'X-RapidAPI-Host': 'app-stores.p.rapidapi.com'
         }
     };
-    
-    const terms = ['cool', 'dumb', 'pretty', 'fast', 'popular', 'trendy', 'sophisticated', 'advanced', 'hacks', 'steamy', 'old', 'vague']
-    let term = terms[Math.floor(Math.random()*terms.length)];
 
     useEffect(() => {
         fetch(`https://app-stores.p.rapidapi.com/search?store=${store}&term=${term}&language=en`, options)

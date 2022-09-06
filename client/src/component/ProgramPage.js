@@ -135,11 +135,11 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
                         <Icon name='heart' />
                     </Button.Content>
                 </Button>
+               
+                <Button onClick={handleCommentAdd}>
+                     <h2><em>Add Your Own Comment!</em></h2>
+                </Button>
             </Card>
-
-        <Button onClick={handleCommentAdd}>
-            <h2><em>Add Your Own Comment!</em></h2>
-        </Button>
   
         {/* {commentsList} */}
         {setCommentsList(appDetails)}
