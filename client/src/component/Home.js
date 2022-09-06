@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Header, Container, Menu } from "semantic-ui-react";
+import { Header, Container, Menu, Image } from "semantic-ui-react";
 // import { Image } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 
@@ -40,6 +39,7 @@ function Home({setStore, userInfo}) {
                     </h2>
                 </Menu.Item>
             </Menu>
+            <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg'alt/> 
         </Container>
     );
   }

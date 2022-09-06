@@ -77,6 +77,7 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
                     id={comment.id}
                     post={comment.letter}
                     setUpdatedApp={setUpdatedApp}
+                    updatedApp={updatedApp}
                     userInfo={userInfo}
                     // setUpdatedComment={setUpdatedComment}
                     />
@@ -104,7 +105,7 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
                 </Card.Content >
 
                 <Card.Content class="header">
-                    <a href={appDetails.link}>Store Link</a>
+                    <a href={appDetails.link} target="_blank" rel="noopener noreferrer">Store Link</a>
                 </Card.Content>
 
                 <Card.Content  class="header">

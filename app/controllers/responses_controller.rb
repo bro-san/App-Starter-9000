@@ -1,5 +1,5 @@
 class ResponsesController < ApplicationController
-    skip_before_action :authenticate_user, only: [:index, :show]
+    skip_before_action :authenticate_user
 
     before_action :set_response, only: [:show, :update, :destroy]
 

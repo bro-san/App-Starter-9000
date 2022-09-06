@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Container, Card, Button } from "semantic-ui-react";
 import ResponsesCard from './ResponsesCard';
 
-function CommentsCard({post, id, setUpdatedApp, userInfo}){
+function CommentsCard({post, id, setUpdatedApp, updatedApp, userInfo}){
     const [thisComment, setThisComment] = useState()
     const [loading, setLoading] = useState(true)
     const [errors, setErrors] = useState(false)
@@ -15,20 +15,23 @@ function CommentsCard({post, id, setUpdatedApp, userInfo}){
                     setThisComment(comment)
                     setLoading(false)
                 })
-            }else {
+            } else {
                 res.json().then(data => setErrors(data.error))
             }
         })
-    },[])
+    },[updatedApp])
 
     if(loading) return <h1>Loading</h1>
     if(errors) return <h1>{errors}</h1>
 
     console.log("thisComment data:", thisComment)
+    
     const responsesList = thisComment.responses.map(response => {
         return <ResponsesCard key={response.id}
         id={response.id}
         text={response.note}
+        setUpdatedApp={setUpdatedApp}
+        updatedApp={setUpdatedApp}
         // handleDelete={handleDelete}
         />
     })
@@ -60,7 +63,7 @@ function CommentsCard({post, id, setUpdatedApp, userInfo}){
         fetch(`/comments/${id}`, {
             method: "DELETE"
         })
-        setUpdatedApp({})
+        setUpdatedApp({id})
     }
 
     function hanldeAddResponse() {
