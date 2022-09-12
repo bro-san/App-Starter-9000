@@ -31,7 +31,9 @@ function NavBar({user, setUser, userInfo, setUserInfo}) {
                      </NavLink>
                   </Button.Content>
                   <Button.Content hidden>
-                        Home
+                     <NavLink exact to='/home'>
+                     Home
+                     </NavLink>
                   </Button.Content>
                 </Button>
 
@@ -43,7 +45,9 @@ function NavBar({user, setUser, userInfo, setUserInfo}) {
                      </NavLink>
                   </Button.Content>
                   <Button.Content hidden>
-                  Community Page
+                  <NavLink exact to='/community'>   
+                      Community Page
+                      </NavLink>
                   </Button.Content>
                 </Button>
 
@@ -56,7 +60,9 @@ function NavBar({user, setUser, userInfo, setUserInfo}) {
                   </NavLink>
                   </Button.Content>
                   <Button.Content hidden>
+                     <NavLink exact to='/signup'>   
                      Sign up
+                     </NavLink>
                   </Button.Content>
                   </Button> :
                   null}
@@ -71,22 +77,36 @@ function NavBar({user, setUser, userInfo, setUserInfo}) {
                   </NavLink> 
                   </Button.Content>
                   <Button.Content hidden>
+                     <NavLink exact to='/login'>
                      Sign in
+                     </NavLink>
                   </Button.Content>
                   </Button> :
-                  <Button onClick={(e)=> onLogout(e)}>
+                  <Button animated onClick={(e)=> onLogout(e)}>
+                     <Button.Content visible >
                      Resignation
-                     <br></br>
-                     (Sign out)
+                     <Icon name='sign-out'></Icon>
+                     </Button.Content>
+                     <Button.Content hidden>
+                     Sign out
+                     </Button.Content>
                   </Button>}
                </Menu.Item>
 
                <Menu.Item class='navbar'>
                   {user==null || user == false ? null :
-                     <Button>
-                        <NavLink exact to={`/users/${userInfo.id}`}>   
-                           Personalization
-                        </NavLink> 
+                     <Button animated>
+                        <Button.Content visible >
+                           <NavLink exact to={`/users/${userInfo.id}`}>   
+                            Personalization
+                            <Icon name='sign-out'></Icon>
+                           </NavLink>
+                         </Button.Content>
+                        <Button.Content hidden>
+                           <NavLink exact to={`/users/${userInfo.id}`}>   
+                            User's Page
+                          </NavLink>
+                        </Button.Content>
                      </Button>}
                </Menu.Item>
         </Menu>

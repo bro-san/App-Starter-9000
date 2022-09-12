@@ -3,13 +3,14 @@ import { Header, Container, Menu, Icon, Button, Image } from "semantic-ui-react"
 import { Link } from 'react-router-dom';
 
 function AppFilterPage({updateStore, store}) {
-
+    console.log("initial 'store' value:", store)
+    
     function handleClick(e){
         e.preventDefault()
-        let value = e.target.innerText
-        console.log(e.target.innerText)
-        updateStore(value.toLowerCase())
-        console.log("'store' value:", store)
+        // console.log(e.target.attributes.label.textContent)
+        let value = e.target.attributes.label.textContent
+        updateStore(value)
+        console.log("after click 'store' value:", store)
     }
 
     return (
@@ -23,7 +24,7 @@ function AppFilterPage({updateStore, store}) {
                 <Button animated color='blue' onClick={handleClick}>
                     <Button.Content visible >Apple</Button.Content>
                     <Button.Content hidden>
-                        <Icon name='apple' />
+                        <Icon label='apple' name='apple' />
                     </Button.Content>
                 </Button>
                 </Menu.Item>
@@ -31,7 +32,7 @@ function AppFilterPage({updateStore, store}) {
                     <Button animated color='blue' onClick={handleClick}>
                         <Button.Content visible >Google</Button.Content>
                         <Button.Content hidden>
-                            <Icon name='google' />
+                            <Icon label='google' name='google' />
                         </Button.Content>
                     </Button>
                 </Menu.Item>
