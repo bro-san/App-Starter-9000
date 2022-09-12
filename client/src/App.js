@@ -27,8 +27,11 @@ function App() {
     SetAppDetails(app)
   }
     
-  const [store, setStore] = useState("");
-
+  const [store, setStore] = useState("no store selected");
+  
+  function updateStore(value) {
+    setStore(value)
+  }
 
   return (
   <>
@@ -57,7 +60,7 @@ function App() {
         </Route>
 
         <Route  exact path="/fork">
-          <AppFilterPage setStore={setStore} store={store}/>
+          <AppFilterPage updateStore={updateStore} store={store}/>
         </Route>
 
         <Route  exact path="/fork/apps">
@@ -65,7 +68,7 @@ function App() {
         </Route>
 
         <Route exact path="/home">
-          <Home setStore={setStore} user={user} userInfo={userInfo}/>
+          <Home user={user} userInfo={userInfo}/>
         </Route>
         
     </Switch>

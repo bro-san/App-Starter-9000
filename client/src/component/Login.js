@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Form, Container, Button } from 'semantic-ui-react';
+import { Form, Container, Button, Image } from 'semantic-ui-react';
 import { useHistory } from "react-router-dom";
 
 function Login({updateUser}) {
@@ -69,6 +69,8 @@ function Login({updateUser}) {
         <Button type='submit'>Login</Button>
         </Form>
         
+        <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/> 
+
     </Container>
   )
 }

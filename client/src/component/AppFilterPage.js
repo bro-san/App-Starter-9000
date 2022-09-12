@@ -1,14 +1,14 @@
 import React from "react";
-import { Header, Container, Menu, Icon, Button } from "semantic-ui-react";
-// import { Image } from "semantic-ui-react";
+import { Header, Container, Menu, Icon, Button, Image } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 
-function AppFilterPage({setStore, store}) {
+function AppFilterPage({updateStore, store}) {
 
     function handleClick(e){
         e.preventDefault()
         let value = e.target.innerText
-        setStore(value.toLowerCase())
+        console.log(e.target.innerText)
+        updateStore(value.toLowerCase())
         console.log("'store' value:", store)
     }
 
@@ -20,18 +20,18 @@ function AppFilterPage({setStore, store}) {
             </Header>
             <Menu  fluid widths={2} class="ui two column grid">
                 <Menu.Item textAlign="center" class="column">
-                <Button animated onClick={handleClick}>
+                <Button animated color='blue' onClick={handleClick}>
                     <Button.Content visible >Apple</Button.Content>
                     <Button.Content hidden>
-                        <Icon name='check square' />
+                        <Icon name='apple' />
                     </Button.Content>
                 </Button>
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                    <Button animated onClick={handleClick}>
-                        <Button.Content visible >Android</Button.Content>
+                    <Button animated color='blue' onClick={handleClick}>
+                        <Button.Content visible >Google</Button.Content>
                         <Button.Content hidden>
-                            <Icon name='check square' />
+                            <Icon name='google' />
                         </Button.Content>
                     </Button>
                 </Menu.Item>
@@ -61,6 +61,7 @@ function AppFilterPage({setStore, store}) {
                     </h2>
                 </Menu.Item>
             </Menu>
+            <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/> 
         </Container>
     );
   }

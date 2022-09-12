@@ -1,4 +1,4 @@
-import { Menu, Header, Button }  from 'semantic-ui-react';
+import { Menu, Header, Button, Icon }  from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 
@@ -23,35 +23,61 @@ function NavBar({user, setUser, userInfo, setUserInfo}) {
     return (
         <Header>
             <Menu textAlign="center">
-                <Button class='ui button'>
+                <Button animated class='ui button'>
+                  <Button.Content visible >
                      <NavLink exact to='/home'>   
-                     Initial Location
+                     Initial Location  
+                     <Icon name='home'></Icon>
                      </NavLink>
+                  </Button.Content>
+                  <Button.Content hidden>
+                        Home
+                  </Button.Content>
                 </Button>
 
-                <Button class='ui button'>
+                <Button animated class='ui button'>
+                  <Button.Content visible >
                      <NavLink exact to='/community'>   
-                     Collaboration
+                     Collaboration 
+                     <Icon name='users'></Icon>
                      </NavLink>
+                  </Button.Content>
+                  <Button.Content hidden>
+                  Community Page
+                  </Button.Content>
                 </Button>
 
                <Menu.Item class='navbar'>
-                  {user==null || user == false ? <Button>
-                  <NavLink exact to='/signup'>   
-                     Registration
-                  </NavLink> 
+                  {user==null || user == false ? <Button animated>
+                     <Button.Content visible >
+                        <NavLink exact to='/signup'>   
+                        Registration
+                        <Icon name='sign-in'></Icon>
+                  </NavLink>
+                  </Button.Content>
+                  <Button.Content hidden>
+                     Sign up
+                  </Button.Content>
                   </Button> :
                   null}
                </Menu.Item>
 
                <Menu.Item class='navbar'>
-                  {user==null || user == false ? <Button>
-                  <NavLink exact to='/login'>   
-                     Authentication
+                  {user==null || user == false ? <Button animated>
+                     <Button.Content visible >
+                        <NavLink exact to='/login'>   
+                        Authentication
+                        <Icon name='signup'></Icon>
                   </NavLink> 
+                  </Button.Content>
+                  <Button.Content hidden>
+                     Sign in
+                  </Button.Content>
                   </Button> :
                   <Button onClick={(e)=> onLogout(e)}>
                      Resignation
+                     <br></br>
+                     (Sign out)
                   </Button>}
                </Menu.Item>
 

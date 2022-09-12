@@ -1,5 +1,4 @@
-import { Header, Container, Menu, Image, Button } from "semantic-ui-react";
-// import { Image } from "semantic-ui-react";
+import { Header, Container, Icon, Image, Button } from "semantic-ui-react";
 import { Link } from 'react-router-dom';
 
 function Home() {
@@ -17,8 +16,13 @@ function Home() {
         <br></br>
         <br></br>
         
-        <Button >
-            <Link class="ui header " to="/fork"> Spark my <i>imagination</i>!</Link>  
+        <Button animated color='blue' size='massive'>
+            <Button.Content visible>
+                 Spark my <i>imagination</i>!
+            </Button.Content>  
+            <Button.Content hidden>
+            <Link to="/fork"><Icon inverted color='white' size='large' name='magic' /></Link>
+            </Button.Content>
         </Button>
             <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg'alt/> 
         </Container>

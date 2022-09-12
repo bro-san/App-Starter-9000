@@ -1,4 +1,4 @@
-import { Card, Button, Icon, Image } from "semantic-ui-react";
+import { Card, Button, Icon, Image, Container } from "semantic-ui-react";
 import CommentsCard from './CommentsCard';
 import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
@@ -97,6 +97,7 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
     //     })
     
     return (
+        <Container>
         <Card.Group itemsPerRow={1}>
             <Card>
                 <Card.Content class="header">
@@ -145,6 +146,10 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
         {setCommentsList(appDetails)}
 
         </Card.Group>
+        
+        <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/> 
+
+        </Container>
     );
   }
 
