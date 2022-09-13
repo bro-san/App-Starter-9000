@@ -1,6 +1,6 @@
 import React from "react";
 import AppCard from "./AppCard";
-import { Container, Card, Image } from 'semantic-ui-react';
+import { Container, Card, Header, Icon } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import config from "../config";
 
@@ -41,6 +41,7 @@ function AppsList({storeInfo, userInfo, updateAppDetails, appDetails, adjective}
 
     return(
         <Container textAlign="left"> 
+        <Header as='h1' color='blue'><Icon name='check square'/>{adjective}...</Header>
         <h1>How about these {noun}?</h1>
         <Card.Group itemsPerRow={3}>
             {appsList}

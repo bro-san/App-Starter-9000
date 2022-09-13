@@ -1,12 +1,41 @@
 import { Header, Menu, Icon, Button } from "semantic-ui-react";
 
 function AdjectiveMenu({adjective, handleAdjClick, handleAdjUnclick}) {
-    const terms = ["Stimulation", "Demonstration "]
+    const terms = ["Stimulation", "Demonstration", "Sophistication", "Innovation", "Anticipation", "Participation", "Legalisation", "Sensation", "Organisation", "Compensation", "Optimization", "Conversation", "Activation", "Randomization", "Specialization", "Realization", "Sychronization", "Utilization", "Continuation", "Visualization", "Evaluation", "Fluctuation", "Equation", "Graduation", "Situation", "Infatuation", "Revelation", "Relaxation", "Recreation", "Delegation", "Instigation", "Investigation", "Mitigation", "Navigation", "Obligation", "Causation"]
+    let termsPre1 = terms.filter(term => term != adjective)
+
+    let term1 = terms[Math.floor(Math.random()*terms.length)]
+    let termsPost1 = terms.filter(term => term != term1)
+
+    let term2 = termsPost1[Math.floor(Math.random()*termsPost1.length)]
+    let termsPost2 = termsPost1.filter(term => term != term2)
+
+    let term3 = termsPost2[Math.floor(Math.random()*termsPost2.length)]
+    let termsPost3 = termsPost2.filter(term => term != term3)
+
+    let term4 = termsPost3[Math.floor(Math.random()*termsPost3.length)]
+    let termsPost4 = termsPost3.filter(term => term != term4)
+
+    let term5 = termsPost4[Math.floor(Math.random()*termsPost4.length)]
+    let termsPost5 = termsPost4.filter(term => term != term5)
+
+    let term6 = termsPost5[Math.floor(Math.random()*termsPost5.length)]
+    let termsPost6 = termsPost5.filter(term => term != term6)
+
+    let term7 = termsPost6[Math.floor(Math.random()*termsPost6.length)]
+    let termsPost7 = termsPost6.filter(term => term != term7)
+
+    let term8 = termsPost7[Math.floor(Math.random()*termsPost7.length)]
+    let termsPost8 = termsPost7.filter(term => term != term8)
+
+    let term9 = termsPost8[Math.floor(Math.random()*termsPost8.length)]
+
     
     return (
-        <><Menu fluid widths={4} class="ui two column grid">
+        <>
+        <Menu fluid widths={3} class="ui two column grid">
                 <Menu.Item textAlign="center" class="column">
-                    {adjective === "Stimulation" ? 
+                    {adjective === term1 ? 
                         <Button  color='white' onClick={handleAdjUnclick}>
                             <Header as='h2' color='blue'>
                             <Icon name="check square"/>
@@ -14,12 +43,12 @@ function AdjectiveMenu({adjective, handleAdjClick, handleAdjUnclick}) {
                         </Button> : 
                         <Button  color='white' onClick={handleAdjClick}>
                             <Header as='h2' color='blue'>
-                             Stimulation
+                             {term1}
                             </Header>
                         </Button>}
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                {adjective === "Demonstration" ? 
+                {adjective === term2 ? 
                         <Button  color='white' onClick={handleAdjUnclick}>
                             <Header as='h2' color='blue'>
                             <Icon name="check square"/>
@@ -27,12 +56,12 @@ function AdjectiveMenu({adjective, handleAdjClick, handleAdjUnclick}) {
                         </Button> : 
                         <Button  color='white' onClick={handleAdjClick}>
                             <Header as='h2' color='blue'>
-                            Demonstration
+                            {term2}
                             </Header>
                         </Button>}
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                    {adjective === "Sophistication" ? 
+                    {adjective === term3 ? 
                         <Button  color='white' onClick={handleAdjUnclick}>
                             <Header as='h2' color='blue'>
                             <Icon name="check square"/>
@@ -40,27 +69,14 @@ function AdjectiveMenu({adjective, handleAdjClick, handleAdjUnclick}) {
                         </Button> : 
                         <Button  color='white' onClick={handleAdjClick}>
                             <Header as='h2' color='blue'>
-                            Sophistication
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Innovation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Innovation
+                            {term3}
                             </Header>
                         </Button>}
                 </Menu.Item>
             </Menu>
-            <Menu fluid widths={4} class="ui two column grid">
+            <Menu fluid widths={3} class="ui two column grid">
                 <Menu.Item textAlign="center" class="column">
-                    {adjective === "Anticipation" ? 
+                    {adjective === term4 ? 
                         <Button  color='white' onClick={handleAdjUnclick}>
                             <Header as='h2' color='blue'>
                             <Icon name="check square"/>
@@ -68,12 +84,12 @@ function AdjectiveMenu({adjective, handleAdjClick, handleAdjUnclick}) {
                         </Button> : 
                         <Button  color='white' onClick={handleAdjClick}>
                             <Header as='h2' color='blue'>
-                            Anticipation
+                            {term4}
                             </Header>
                         </Button>}
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                    {adjective === "Participation" ? 
+                    {adjective === term5 ? 
                         <Button  color='white' onClick={handleAdjUnclick}>
                             <Header as='h2' color='blue'>
                             <Icon name="check square"/>
@@ -81,12 +97,12 @@ function AdjectiveMenu({adjective, handleAdjClick, handleAdjUnclick}) {
                         </Button> : 
                         <Button  color='white' onClick={handleAdjClick}>
                             <Header as='h2' color='blue'>
-                            Participation
+                            {term5}
                             </Header>
                         </Button>}
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                    {adjective === "Legalisation" ? 
+                    {adjective === term6 ? 
                         <Button  color='white' onClick={handleAdjUnclick}>
                             <Header as='h2' color='blue'>
                             <Icon name="check square"/>
@@ -94,27 +110,14 @@ function AdjectiveMenu({adjective, handleAdjClick, handleAdjUnclick}) {
                         </Button> : 
                         <Button  color='white' onClick={handleAdjClick}>
                             <Header as='h2' color='blue'>
-                            Legalisation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Sensation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Sensation
+                            {term6}
                             </Header>
                         </Button>}
                 </Menu.Item>
             </Menu>
-            <Menu fluid widths={4} class="ui two column grid">
+            <Menu fluid widths={3} class="ui two column grid">
                 <Menu.Item textAlign="center" class="column">
-                    {adjective === "Organisation" ? 
+                    {adjective === term7 ? 
                         <Button  color='white' onClick={handleAdjUnclick}>
                             <Header as='h2' color='blue'>
                             <Icon name="check square"/>
@@ -122,12 +125,12 @@ function AdjectiveMenu({adjective, handleAdjClick, handleAdjUnclick}) {
                         </Button> : 
                         <Button  color='white' onClick={handleAdjClick}>
                             <Header as='h2' color='blue'>
-                            Organisation
+                            {term7}
                             </Header>
                         </Button>}
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                    {adjective === "Compensation" ? 
+                    {adjective === term8 ? 
                         <Button  color='white' onClick={handleAdjUnclick}>
                             <Header as='h2' color='blue'>
                             <Icon name="check square"/>
@@ -135,12 +138,12 @@ function AdjectiveMenu({adjective, handleAdjClick, handleAdjUnclick}) {
                         </Button> : 
                         <Button  color='white' onClick={handleAdjClick}>
                             <Header as='h2' color='blue'>
-                            Compensation
+                            {term8}
                             </Header>
                         </Button>}
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                    {adjective === "Optimization" ? 
+                    {adjective === term9 ? 
                         <Button  color='white' onClick={handleAdjUnclick}>
                             <Header as='h2' color='blue'>
                             <Icon name="check square"/>
@@ -148,344 +151,7 @@ function AdjectiveMenu({adjective, handleAdjClick, handleAdjUnclick}) {
                         </Button> : 
                         <Button  color='white' onClick={handleAdjClick}>
                             <Header as='h2' color='blue'>
-                            Optimization
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Conversation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Conversation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-            </Menu>
-            <Menu fluid widths={4} class="ui two column grid">
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Activation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Activation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Randomization" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Randomization
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Specialization" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Specialization
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Realisation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Realisation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-            </Menu>
-            <Menu fluid widths={4} class="ui two column grid">
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Sychronization" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Sychronization
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Utilization
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Continuation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Continuation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Visualization" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Visualization
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-            </Menu>
-            <Menu fluid widths={4} class="ui two column grid">
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Evaluation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Evaluation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Fluctuation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Fluctuation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Equation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Equation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Graduation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Graduation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-            </Menu>
-            <Menu fluid widths={4} class="ui two column grid">
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Situation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Situation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Infatuation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Infatuation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Revelation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Revelation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Relaxation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Relaxation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-            </Menu>
-            <Menu fluid widths={4} class="ui two column grid">
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Recreation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Recreation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Delegation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Delegation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Instigation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Instigation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Investigation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Investigation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-            </Menu>
-            <Menu fluid widths={4} class="ui two column grid">
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Mitigation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Mitigation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Navigation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Navigation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Obligation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Obligation
-                            </Header>
-                        </Button>}
-                </Menu.Item>
-                <Menu.Item textAlign="center" class="column">
-                    {adjective === "Causation" ? 
-                        <Button  color='white' onClick={handleAdjUnclick}>
-                            <Header as='h2' color='blue'>
-                            <Icon name="check square"/>
-                            </Header>
-                        </Button> : 
-                        <Button  color='white' onClick={handleAdjClick}>
-                            <Header as='h2' color='blue'>
-                            Causation
+                            {term9}
                             </Header>
                         </Button>}
                 </Menu.Item>

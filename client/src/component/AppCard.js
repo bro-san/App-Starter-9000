@@ -4,7 +4,7 @@ import { Card, Button, Image } from "semantic-ui-react";
 
 function AppCard({app, updateAppDetails, appDetails}){
 
-    const {name, category, ratings, icons, screenshots} = app
+    const {name, description, category, ratings, icons, screenshots} = app
     const screenshot_one =  screenshots[0] 
     const screenshot_two = screenshots[1] 
     const screenshot_three = screenshots[2] 
@@ -71,10 +71,10 @@ function AppCard({app, updateAppDetails, appDetails}){
                     {ratings.average}
                 </Card.Content >
 
-                {/* <Card.Content  class="header">
+                <Card.Content  class="header">
                 <h4>Description:</h4>
                     {description}
-                </Card.Content> */}
+                </Card.Content>
 
                 <Card.Content class="header">
                     <h4>Screenshot:</h4>

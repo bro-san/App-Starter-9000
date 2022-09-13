@@ -51,7 +51,7 @@ function Login({updateUser}) {
 
     <Container textAlign="center"> 
         <h1>Authentication</h1>
-        <h3>(Login)</h3>
+        <h3>(Sign in)</h3>
         <Form  onSubmit={(e)=> handleSubmit(e)}>
 
         <Form.Field>

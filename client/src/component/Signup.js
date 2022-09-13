@@ -45,7 +45,7 @@ function Signup({updateUser}) {
   return (
     <Container textAlign="center"> 
         <h1>Registration</h1>
-        <h3>(Sign-up)</h3>
+        <h3>(Sign up)</h3>
         <Form onSubmit={(e)=> handleSubmit(e)}>
 
             <Form.Field>
@@ -54,7 +54,7 @@ function Signup({updateUser}) {
             </Form.Field>
 
             <Form.Field>
-                <label>email</label>
+                <label>Email</label>
                 <input placeholder='joe@flatironschool.com' onChange={(e) => setFormData({...form, email: e.target.value})} value = {form.email} />
             </Form.Field>
 
