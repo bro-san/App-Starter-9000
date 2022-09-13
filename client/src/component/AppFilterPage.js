@@ -1,24 +1,24 @@
 import React from "react";
-import { Header, Container, Menu, Icon, Button, Image, Label } from "semantic-ui-react";
+import { Header, Container, Menu, Icon, Button, Image } from "semantic-ui-react";
 import { useHistory } from 'react-router-dom';
 
-function AppFilterPage({updateStore, store, updateAdjective, adjective}) {
+function AppFilterPage({updateStore, storeInfo, store, updateAdjective, adjective}) {
     
     const history = useHistory()
     
-    console.log("'store' value:", store)
+    // console.log("'storeInfo' value:", storeInfo)
+    // console.log("'store' value:", store)
     
     function handleStoreClick(e){
         e.preventDefault()
-        console.log(e.target.children)
-        let value = e.target
+        console.log(e.target.innerText)
+        let value = e.target.innerText
         updateStore(value)
-        console.log("after click 'store' value:", store)
     }
 
     function handleAdjClick(e){
         e.preventDefault()
-        console.log(e.target.textContent)
+        console.log(e)
         let value = e.target.textContent
         updateAdjective(value)
         history.push(`/fork/apps`)
@@ -33,29 +33,28 @@ function AppFilterPage({updateStore, store, updateAdjective, adjective}) {
             </Header>
             <Menu  fluid widths={2} class="ui two column grid">
                 <Menu.Item textAlign="center" class="column">
-                <Button size='huge' color='blue' as='div' labelPosition='left' onClick={handleStoreClick}>
-                        <Label size='huge' color='blue' as='a' basic>
-                         <h2>Apple</h2>
-                        </Label>
-                        <Button size='huge' color='blue' icon>
-                            <Icon name='apple' />
-                        </Button>
-                    </Button>
+                {storeInfo === 'Apple' ? <Button size='large' color='blue'>
+                    <h1><Icon size='large' name='apple' /></h1>
+                    </Button> :
+                    <Button name='Apple' size='huge' color='blue' onClick={handleStoreClick}>
+                    <h1>Apple</h1>
+                    </Button>}
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                    <Button size='huge' color='blue' as='div' labelPosition='left' onClick={handleStoreClick}>
-                        <Label size='huge' color='blue' as='a' basic>
-                         <h2>Google</h2>
-                        </Label>
-                        <Button size='huge' color='blue' icon>
-                            <Icon name='google' />
-                        </Button>
-                    </Button>
+                {storeInfo === 'Google' ? <Button size='large' color='blue'>
+                    <h1><Icon size='large' name='google' /></h1>
+                    </Button> :
+                    <Button name='Google' size='huge' color='blue' onClick={handleStoreClick}>
+                    <h1>Google</h1>
+                    </Button>}
                 </Menu.Item>
             </Menu>
+        {store === true ?
         <Header class="ui sizer vertical segment">
             <h1 class="ui large header ">Pick a word for motivation:</h1>  
-        </Header>
+        </Header> : null}
+
+        {store === true ?
             <Menu  fluid widths={4} class="ui two column grid">
                 <Menu.Item textAlign="center" class="column">
                     <Button  color='white' onClick={handleAdjClick}>
@@ -90,6 +89,8 @@ function AppFilterPage({updateStore, store, updateAdjective, adjective}) {
                 </Menu.Item>
                 </Menu.Item>
             </Menu>
+        : null}
+        
             <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/> 
         </Container>
     );
