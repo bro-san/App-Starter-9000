@@ -1,16 +1,28 @@
 import React from "react";
-import { Header, Container, Menu, Icon, Button, Image } from "semantic-ui-react";
-import { Link } from 'react-router-dom';
+import { Header, Container, Menu, Icon, Button, Image, Label } from "semantic-ui-react";
+import { useHistory } from 'react-router-dom';
 
-function AppFilterPage({updateStore, store}) {
-    console.log("initial 'store' value:", store)
+function AppFilterPage({updateStore, store, updateAdjective, adjective}) {
     
-    function handleClick(e){
+    const history = useHistory()
+    
+    console.log("'store' value:", store)
+    
+    function handleStoreClick(e){
         e.preventDefault()
-        // console.log(e.target.attributes.label.textContent)
-        let value = e.target.attributes.label.textContent
+        console.log(e.target.children)
+        let value = e.target
         updateStore(value)
         console.log("after click 'store' value:", store)
+    }
+
+    function handleAdjClick(e){
+        e.preventDefault()
+        console.log(e.target.textContent)
+        let value = e.target.textContent
+        updateAdjective(value)
+        history.push(`/fork/apps`)
+        console.log("after click 'adjective' value:", adjective)
     }
 
     return (
@@ -21,19 +33,23 @@ function AppFilterPage({updateStore, store}) {
             </Header>
             <Menu  fluid widths={2} class="ui two column grid">
                 <Menu.Item textAlign="center" class="column">
-                <Button animated color='blue' onClick={handleClick}>
-                    <Button.Content visible >Apple</Button.Content>
-                    <Button.Content hidden>
-                        <Icon label='apple' name='apple' />
-                    </Button.Content>
-                </Button>
+                <Button size='huge' color='blue' as='div' labelPosition='left' onClick={handleStoreClick}>
+                        <Label size='huge' color='blue' as='a' basic>
+                         <h2>Apple</h2>
+                        </Label>
+                        <Button size='huge' color='blue' icon>
+                            <Icon name='apple' />
+                        </Button>
+                    </Button>
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                    <Button animated color='blue' onClick={handleClick}>
-                        <Button.Content visible >Google</Button.Content>
-                        <Button.Content hidden>
-                            <Icon label='google' name='google' />
-                        </Button.Content>
+                    <Button size='huge' color='blue' as='div' labelPosition='left' onClick={handleStoreClick}>
+                        <Label size='huge' color='blue' as='a' basic>
+                         <h2>Google</h2>
+                        </Label>
+                        <Button size='huge' color='blue' icon>
+                            <Icon name='google' />
+                        </Button>
                     </Button>
                 </Menu.Item>
             </Menu>
@@ -42,24 +58,36 @@ function AppFilterPage({updateStore, store}) {
         </Header>
             <Menu  fluid widths={4} class="ui two column grid">
                 <Menu.Item textAlign="center" class="column">
-                    <h2 class="medium">
-                        <Link to="/apps">Stimulation</Link>
-                    </h2>
+                    <Button  color='white' onClick={handleAdjClick}>
+                        <Header as='h2' color='blue'>
+                         Stimulation
+                        </Header>
+                    </Button>
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                    <h2 class="medium"> 
-                        <Link to="/fork/apps">Excitation</Link>
-                    </h2>
+                    <Button  color='white' onClick={handleAdjClick}>
+                        <Header as='h2' color='blue'>
+                         Excitation
+                        </Header>
+                    </Button>
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                    <h2 class="medium"> 
-                        <Link to="/fork/apps">Sophistication</Link>
-                    </h2>
+                <Menu.Item textAlign="center" class="column">
+                    <Button  color='white' onClick={handleAdjClick}>
+                        <Header as='h2' color='blue'>
+                         Sophistication
+                        </Header>
+                    </Button>
+                </Menu.Item>
                 </Menu.Item>
                 <Menu.Item textAlign="center" class="column">
-                    <h2 class="medium"> 
-                        <Link to="/fork/apps">Innovation</Link>
-                    </h2>
+                <Menu.Item textAlign="center" class="column">
+                    <Button  color='white' onClick={handleAdjClick}>
+                        <Header as='h2' color='blue'>
+                         Innovation
+                        </Header>
+                    </Button>
+                </Menu.Item>
                 </Menu.Item>
             </Menu>
             <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/> 

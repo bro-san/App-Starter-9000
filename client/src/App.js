@@ -17,6 +17,8 @@ function App() {
   const [user, setUser] = useState(false);
   const [userInfo, setUserInfo] = useState({});
   const [appDetails, SetAppDetails] = useState({})
+  const [store, setStore] = useState("no store selected");
+  const [adjective, setAdjective] = useState("no adjective set")
 
   function updateUser(user) {
     setUserInfo(user)
@@ -26,11 +28,13 @@ function App() {
   function updateAppDetails(app) {
     SetAppDetails(app)
   }
-    
-  const [store, setStore] = useState("no store selected");
   
   function updateStore(value) {
     setStore(value)
+  }
+
+  function updateAdjective(word) {
+    setAdjective(word)
   }
 
   return (
@@ -60,7 +64,7 @@ function App() {
         </Route>
 
         <Route  exact path="/fork">
-          <AppFilterPage updateStore={updateStore} store={store}/>
+          <AppFilterPage adjective={adjective} updateAdjective={updateAdjective} updateStore={updateStore} store={store}/>
         </Route>
 
         <Route  exact path="/fork/apps">

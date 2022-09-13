@@ -17,12 +17,14 @@ function Home() {
         <br></br>
         
         <Button animated color='blue' size='massive'>
-            <Button.Content visible>
-                 Spark my <i>imagination</i>!
+            <Link to="/fork">
+            <Button.Content color='white' visible>
+                <Header inverted color='white'>Spark my <i>imagination</i>!</Header> 
             </Button.Content>  
             <Button.Content hidden>
-            <Link to="/fork"><Icon inverted color='white' size='large' name='magic' /></Link>
+            <Icon inverted color='white' size='large' name='magic' />
             </Button.Content>
+            </Link>
         </Button>
             <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg'alt/> 
         </Container>
