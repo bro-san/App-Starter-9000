@@ -19,7 +19,7 @@ function App() {
   const [appDetails, SetAppDetails] = useState({})
   const [store, setStore] = useState(false)
   const [storeInfo, setStoreInfo] = useState("no store selected");
-  // const [adjBoolean, setAdjBoolean] =useState(false)
+  const [adjBoolean, setAdjBoolean] =useState(false)
   const [adjective, setAdjective] = useState("no adjective set")
   function updateUser(user) {
     setUserInfo(user)
@@ -37,7 +37,7 @@ function App() {
 
   function updateAdjective(word) {
     setAdjective(word)
-    // setAdjBoolean(true)
+    setAdjBoolean(true)
   }
 
   return (
@@ -67,12 +67,23 @@ function App() {
         </Route>
 
         <Route  exact path="/fork">
-          <AppFilterPage adjective={adjective} updateAdjective={updateAdjective} updateStore={updateStore} store={store} storeInfo={storeInfo}/>
+          <AppFilterPage 
+            adjBoolean={adjBoolean} 
+            adjective={adjective} 
+            updateAdjective={updateAdjective} 
+            store={store} 
+            storeInfo={storeInfo}
+            updateStore={updateStore}
+            userInfo={userInfo} 
+            appDetails={appDetails}
+            updateAppDetails={updateAppDetails}
+            setAdjBoolean={setAdjBoolean} 
+          />
         </Route>
 
-        <Route  exact path="/fork/apps">
+        {/* <Route  exact path="/fork/apps">
           <AppsList storeInfo={storeInfo} userInfo={userInfo} updateAppDetails={updateAppDetails} appDetails={appDetails}/>
-        </Route>
+        </Route> */}
 
         <Route exact path="/home">
           <Home user={user} userInfo={userInfo}/>

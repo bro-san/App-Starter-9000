@@ -4,7 +4,7 @@ import { Container, Card, Image } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import config from "../config";
 
-function AppsList({store, userInfo, updateAppDetails, appDetails, term}){
+function AppsList({storeInfo, userInfo, updateAppDetails, appDetails, adjective}){
 
     const secretkey = config.SECRET_API_KEY;
 
@@ -19,11 +19,11 @@ function AppsList({store, userInfo, updateAppDetails, appDetails, term}){
     };
 
     useEffect(() => {
-        fetch(`https://app-stores.p.rapidapi.com/search?store=${store}&term=${term}&language=en`, options)
+        fetch(`https://app-stores.p.rapidapi.com/search?store=${storeInfo}&term=${adjective}&language=en`, options)
         .then(response => response.json())
         .then(response => setApps(response))
         .catch(err => console.error(err));
-    }, [])
+    }, [adjective, storeInfo])
 
      console.log("These apps have been fetched:", apps)
 
@@ -45,7 +45,7 @@ function AppsList({store, userInfo, updateAppDetails, appDetails, term}){
         <Card.Group itemsPerRow={3}>
             {appsList}
         </Card.Group>
-        <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/> 
+        {/* <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/>  */}
     </Container>
     )
 }
