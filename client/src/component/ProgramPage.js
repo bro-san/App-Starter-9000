@@ -1,4 +1,4 @@
-import { Card, Button, Icon } from "semantic-ui-react";
+import { Card, Button, Icon, Image, Container } from "semantic-ui-react";
 import CommentsCard from './CommentsCard';
 import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
@@ -97,6 +97,7 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
     //     })
     
     return (
+        <Container>
         <Card.Group itemsPerRow={1}>
             <Card>
                 <Card.Content class="header">
@@ -125,9 +126,9 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
 
                 <Card.Content class="header">
                     <h4>Screenshot:</h4>
-                    <img src={appDetails.screenshot_one} alt="app's screenshot #1"/>
-                    <img src={appDetails.screenshot_two} alt="app's screenshot #2"/>
-                    <img src={appDetails.screenshot_three} alt="app's screenshot #3"/>
+                    <Image src={appDetails.screenshot_one} alt="app's screenshot #1" size='medium' />
+                    <Image src={appDetails.screenshot_two} alt="app's screenshot #2" size='medium'/>
+                    <Image src={appDetails.screenshot_three} alt="app's screenshot #3" />
                 </Card.Content >
                 <Button animated onClick={handleFavClick}>
                     <Button.Content visible >Favorite?</Button.Content>
@@ -135,16 +136,20 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
                         <Icon name='heart' />
                     </Button.Content>
                 </Button>
+               
+                <Button onClick={handleCommentAdd}>
+                     <h2><em>Add Your Own Comment!</em></h2>
+                </Button>
             </Card>
-
-        <Button onClick={handleCommentAdd}>
-            <h2><em>Add Your Own Comment!</em></h2>
-        </Button>
   
         {/* {commentsList} */}
         {setCommentsList(appDetails)}
 
         </Card.Group>
+        
+        <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/> 
+
+        </Container>
     );
   }
 

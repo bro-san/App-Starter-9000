@@ -1,5 +1,5 @@
 import FavAppCard from "./FavAppCard";
-import { Container, Card } from "semantic-ui-react";
+import { Container, Card, Image } from "semantic-ui-react";
 import { useEffect, useState } from 'react'
 
 
@@ -33,6 +33,7 @@ function UserPage({userInfo, updateAppDetails, updateUser }) {
         <Card.Group itemsPerRow={1}>
             {appsList}
         </Card.Group>
+        <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/> 
         </Container>
     );
   }

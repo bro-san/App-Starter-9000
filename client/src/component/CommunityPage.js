@@ -1,5 +1,5 @@
 import CommunityAppCard from './CommunityAppCard';
-import { Container, Card } from 'semantic-ui-react';
+import { Container, Card, Image } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 
 function CommunityPage({userInfo, updateAppDetails, appDetails}){
@@ -31,6 +31,7 @@ function CommunityPage({userInfo, updateAppDetails, appDetails}){
         <Card.Group itemsPerRow={3}>
             {communityAppsList}
         </Card.Group>
+        <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/> 
     </Container>
     )
 }

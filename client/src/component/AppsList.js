@@ -1,10 +1,10 @@
 import React from "react";
 import AppCard from "./AppCard";
-import { Container, Card } from 'semantic-ui-react';
+import { Container, Card, Header, Icon } from 'semantic-ui-react';
 import { useState, useEffect } from 'react';
 import config from "../config";
 
-function AppsList({store, userInfo, updateAppDetails, appDetails}){
+function AppsList({storeInfo, userInfo, updateAppDetails, appDetails, adjective}){
 
     const secretkey = config.SECRET_API_KEY;
 
@@ -17,16 +17,13 @@ function AppsList({store, userInfo, updateAppDetails, appDetails}){
             'X-RapidAPI-Host': 'app-stores.p.rapidapi.com'
         }
     };
-    
-    const terms = ['cool', 'dumb', 'pretty', 'fast', 'popular', 'trendy', 'sophisticated', 'advanced', 'hacks', 'steamy', 'old', 'vague']
-    let term = terms[Math.floor(Math.random()*terms.length)];
 
     useEffect(() => {
-        fetch(`https://app-stores.p.rapidapi.com/search?store=${store}&term=${term}&language=en`, options)
+        fetch(`https://app-stores.p.rapidapi.com/search?store=${storeInfo}&term=${adjective}&language=en`, options)
         .then(response => response.json())
         .then(response => setApps(response))
         .catch(err => console.error(err));
-    }, [])
+    }, [adjective, storeInfo])
 
      console.log("These apps have been fetched:", apps)
 
@@ -44,10 +41,12 @@ function AppsList({store, userInfo, updateAppDetails, appDetails}){
 
     return(
         <Container textAlign="left"> 
+        <Header as='h1' color='blue'><Icon name='check square'/>{adjective}...</Header>
         <h1>How about these {noun}?</h1>
         <Card.Group itemsPerRow={3}>
             {appsList}
         </Card.Group>
+        {/* <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/>  */}
     </Container>
     )
 }

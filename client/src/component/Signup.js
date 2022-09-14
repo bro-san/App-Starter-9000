@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Container, Form, Button } from 'semantic-ui-react';
+import { Container, Form, Button, Image } from 'semantic-ui-react';
 import { useHistory } from "react-router-dom";
 
 function Signup({updateUser}) {
@@ -45,7 +45,7 @@ function Signup({updateUser}) {
   return (
     <Container textAlign="center"> 
         <h1>Registration</h1>
-        <h3>(Sign-up)</h3>
+        <h3>(Sign up)</h3>
         <Form onSubmit={(e)=> handleSubmit(e)}>
 
             <Form.Field>
@@ -54,7 +54,7 @@ function Signup({updateUser}) {
             </Form.Field>
 
             <Form.Field>
-                <label>email</label>
+                <label>Email</label>
                 <input placeholder='joe@flatironschool.com' onChange={(e) => setFormData({...form, email: e.target.value})} value = {form.email} />
             </Form.Field>
 
@@ -75,7 +75,7 @@ function Signup({updateUser}) {
 
             <Button type='submit'>Submit</Button>
         </Form>
-            
+        <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/> 
     </Container>    
   )
 }
