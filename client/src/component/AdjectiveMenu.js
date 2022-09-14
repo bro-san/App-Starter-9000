@@ -1,7 +1,7 @@
 import { Header, Menu, Icon, Button } from "semantic-ui-react";
 
 function AdjectiveMenu({adjective, handleAdjClick, handleAdjUnclick}) {
-    const terms = ["Stimulation", "Demonstration", "Sophistication", "Innovation", "Anticipation", "Participation", "Legalisation", "Sensation", "Organisation", "Compensation", "Optimization", "Conversation", "Activation", "Randomization", "Specialization", "Realization", "Sychronization", "Utilization", "Continuation", "Visualization", "Evaluation", "Fluctuation", "Equation", "Graduation", "Situation", "Infatuation", "Revelation", "Relaxation", "Recreation", "Delegation", "Instigation", "Investigation", "Mitigation", "Navigation", "Obligation", "Causation"]
+    const terms = ["Stimulation", "Demonstration", "Sophistication", "Innovation", "Anticipation", "Participation", "Legalisation", "Sensation", "Organisation", "Compensation", "Optimization", "Conversation", "Activation", "Randomization", "Specialization", "Realization", "Sychronization", "Utilization", "Continuation", "Visualization", "Evaluation", "Fluctuation", "Equation", "Graduation", "Situation", "Infatuation", "Revelation", "Relaxation", "Recreation", "Delegation", "Instigation", "Investigation", "Mitigation", "Navigation", "Obligation", "Causation", "Reincarnation", "Fascination", "Contemplation", "Cooperation", "Invitation", "Admiration", "Appreciation", "Jubilation", "Commemoration"]
     let termsPre1 = terms.filter(term => term != adjective)
 
     let term1 = terms[Math.floor(Math.random()*terms.length)]
