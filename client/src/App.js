@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import { Header } from 'semantic-ui-react'
 import NavBar from './component/NavBar'
@@ -7,7 +7,6 @@ import Signup from "./component/Signup";
 import Login from "./component/Login";
 import Home from './component/Home';
 import AppFilterPage from './component/AppFilterPage';
-import AppsList from './component/AppsList';
 import UserPage from './component/UserPage';
 import ProgramPage from './component/ProgramPage';
 import CommunityPage from './component/CommunityPage';
@@ -59,7 +58,7 @@ function App() {
         </Route>
 
         <Route  exact path="/users/:id">
-          <UserPage updateUser={updateUser} userInfo={userInfo} updateAppDetails={updateAppDetails}/>
+          <UserPage user={user} updateUser={updateUser} userInfo={userInfo} updateAppDetails={updateAppDetails}/>
         </Route>
 
         <Route  exact path="/programs/:id">
@@ -80,10 +79,6 @@ function App() {
             setAdjBoolean={setAdjBoolean} 
           />
         </Route>
-
-        {/* <Route  exact path="/fork/apps">
-          <AppsList storeInfo={storeInfo} userInfo={userInfo} updateAppDetails={updateAppDetails} appDetails={appDetails}/>
-        </Route> */}
 
         <Route exact path="/home">
           <Home user={user} userInfo={userInfo}/>

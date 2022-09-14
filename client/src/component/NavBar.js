@@ -12,12 +12,12 @@ function NavBar({user, setUser, userInfo, setUserInfo}) {
        })
        .then(response => {
           if(response.ok){
+            setUserInfo("no user")
             setUser(false)
             response.json().then(() => {
               history.push("/login")
           }
         )}})
-        setUserInfo("no user")
     }
 
     return (

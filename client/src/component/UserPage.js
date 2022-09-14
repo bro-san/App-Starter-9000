@@ -3,7 +3,7 @@ import { Container, Card, Image } from "semantic-ui-react";
 import { useEffect, useState } from 'react'
 
 
-function UserPage({userInfo, updateAppDetails, updateUser }) {
+function UserPage({userInfo, updateAppDetails, updateUser, user}) {
 
   const [updateFavs, setUpdateFavs] = useState({})
   
@@ -17,7 +17,7 @@ function UserPage({userInfo, updateAppDetails, updateUser }) {
     let favsListConditional
     let favsCheck = userInfo.favorites
     console.log("favsCheck:", favsCheck)
-    if (favsCheck.length != 0) {
+    if ((favsCheck != null || undefined) && (favsCheck.length != 0)) {
         favsListConditional = userInfo.favorites.map(fav => {
           return <FavAppCard key={fav.id}
           id={fav.id}
