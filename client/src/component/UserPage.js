@@ -13,13 +13,31 @@ function UserPage({userInfo, updateAppDetails, updateUser }) {
     .then(data => updateUser(data))
   }, [updateFavs])
 
-    const appsList = userInfo.favorites.map(fav => {
-        return <FavAppCard key={fav.id}
-        id={fav.id}
-        handleUnfavorite={handleUnfavorite}
-        updateAppDetails={updateAppDetails}
-        />
-    })
+  function setFavsList(userInfo) {
+    let favsListConditional
+    let favsCheck = userInfo.favorites
+    console.log("favsCheck:", favsCheck)
+    if (favsCheck.length != 0) {
+        favsListConditional = userInfo.favorites.map(fav => {
+          return <FavAppCard key={fav.id}
+          id={fav.id}
+          handleUnfavorite={handleUnfavorite}
+          updateAppDetails={updateAppDetails}
+          />
+      })
+    } else {
+            favsListConditional = "You haven't added any favorite apps yet!"
+    }
+    return(favsListConditional)
+}
+
+  // const appsList = userInfo.favorites.map(fav => {
+  //       return <FavAppCard key={fav.id}
+  //       id={fav.id}
+  //       handleUnfavorite={handleUnfavorite}
+  //       updateAppDetails={updateAppDetails}
+  //       />
+  //   })
 
     function handleUnfavorite(id) {
         console.log("hanldeUnfavorite -> Removed!")
@@ -30,9 +48,11 @@ function UserPage({userInfo, updateAppDetails, updateUser }) {
         <Container textAlign="left"> 
         <h1>Hello, {userInfo.name}!</h1>
         <h3>Your Favorited Apps:</h3>
+        <br></br>
         <Card.Group itemsPerRow={1}>
-            {appsList}
+            {setFavsList(userInfo)}
         </Card.Group>
+        <br></br>
         <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/> 
         </Container>
     );

@@ -87,14 +87,6 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
         }
         return(commentsListConditional)
     }
-
-    // const commentsList = appDetails.comments.map(comment => {
-    //     return <CommentsCard key={comment.id}
-    //     id={comment.id}
-    //     post={comment.letter}
-    //     // handleDelete={handleDelete}
-    //     />
-    //     })
     
     return (
         <Container>
@@ -142,7 +134,6 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
                 </Button>
             </Card>
   
-        {/* {commentsList} */}
         {setCommentsList(appDetails)}
 
         </Card.Group>
