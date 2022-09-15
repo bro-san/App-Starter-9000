@@ -26,7 +26,7 @@ function AppFilterPage({updateStore, storeInfo, store, updateAdjective, adjectiv
     }
 
     return (
-        <>
+    <Container textAlign="center">
         <Container textAlign="center">
             <Header class="ui sizer vertical segment">
                 <h1 class="ui huge header ">Pick a community for consideration:</h1>  
@@ -63,9 +63,9 @@ function AppFilterPage({updateStore, storeInfo, store, updateAdjective, adjectiv
             {adjBoolean === true ? 
             <AppsList adjective={adjective} storeInfo={storeInfo} userInfo={userInfo} appDetails={appDetails} updateAppDetails={updateAppDetails}/>
             : null}   
-
+            <br></br>
             <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/>
-        </>
+    </Container>
     );
   }
 

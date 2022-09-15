@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import { Card, Button, Image } from "semantic-ui-react";
+import { Card, Button, Image, Header, Icon } from "semantic-ui-react";
 
 function AppCard({app, updateAppDetails, appDetails}){
 
@@ -57,10 +57,6 @@ function AppCard({app, updateAppDetails, appDetails}){
                     <Image src={icons.medium} alt="app's icon"/>
                 </Card.Content >
 
-                {/* <Card.Content class="header">
-                    <a href={url}>Store Link</a>
-                </Card.Content> */}
-
                 <Card.Content  class="header">
                     <h4>Category:</h4> 
                     {category}
@@ -82,17 +78,17 @@ function AppCard({app, updateAppDetails, appDetails}){
                     {/* <img src={screenshots[1]} alt="app's screenshot #2"/>
                     <img src={screenshots[2]} alt="app's screenshot #3"/> */}
                 </Card.Content >
-                <Button onClick={handleClick}>
+                <Button animated color="blue" onClick={handleClick}>
                     <Link to={`/programs/${appDetails.id}`}>   
-                        App Details
-                     </Link>
+                        <Button.Content color='white' visible >
+                            <Header as='h3' inverted color='white'>App's Details</Header> 
+                        </Button.Content>
+                        <Button.Content hidden>
+                            <Icon inverted color='white' size='large' name='info circle'/>
+                            <Icon inverted color='white' size='large' name='chat'/>
+                        </Button.Content>                     
+                    </Link>
                 </Button>
-                {/* <Button animated onClick={handleClick}>
-                    <Button.Content visible >Favorite?</Button.Content>
-                    <Button.Content hidden>
-                        <Icon name='heart' />
-                    </Button.Content>
-                </Button> */}
         </Card>
     )
 }

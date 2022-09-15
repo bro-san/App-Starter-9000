@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import { Card, Button, Image } from "semantic-ui-react";
+import { Card, Button, Image, Header, Icon } from "semantic-ui-react";
 
 function CommunityAppCard({app, updateAppDetails, appDetails}){
 
@@ -35,9 +35,15 @@ function CommunityAppCard({app, updateAppDetails, appDetails}){
                     <img src={screenshot_two} alt="app's screenshot #2"/>
                     <img src={screenshot_three} alt="app's screenshot #3"/>
                 </Card.Content > */}
-                <Button onClick={handleClick}>
+                <Button animated color='blue' onClick={handleClick}>
                     <Link to={`/programs/${app.id}`}>   
-                        App Details
+                        <Button.Content color='white' visible >
+                            <Header as='h3' inverted color='white'>App's Details</Header> 
+                        </Button.Content>
+                        <Button.Content hidden>
+                        <Icon inverted color='white' size='large' name='info circle'/>
+                        <Icon inverted color='white' size='large' name='chat'/>
+                        </Button.Content>
                      </Link>
                 </Button>
         </Card>

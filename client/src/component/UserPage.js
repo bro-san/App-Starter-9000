@@ -16,7 +16,6 @@ function UserPage({userInfo, updateAppDetails, updateUser, user}) {
   function setFavsList(userInfo) {
     let favsListConditional
     let favsCheck = userInfo.favorites
-    console.log("favsCheck:", favsCheck)
     if ((favsCheck != null || undefined) && (favsCheck.length != 0)) {
         favsListConditional = userInfo.favorites.map(fav => {
           return <FavAppCard key={fav.id}
@@ -30,14 +29,6 @@ function UserPage({userInfo, updateAppDetails, updateUser, user}) {
     }
     return(favsListConditional)
 }
-
-  // const appsList = userInfo.favorites.map(fav => {
-  //       return <FavAppCard key={fav.id}
-  //       id={fav.id}
-  //       handleUnfavorite={handleUnfavorite}
-  //       updateAppDetails={updateAppDetails}
-  //       />
-  //   })
 
     function handleUnfavorite(id) {
         console.log("hanldeUnfavorite -> Removed!")

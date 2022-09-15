@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import { Card, Button, Icon, Image } from "semantic-ui-react";
+import { Card, Button, Icon, Image, Header } from "semantic-ui-react";
 
 function FavAppCard({id, handleUnfavorite, updateAppDetails}){
     const [thisFav, setThisFav] = useState()
@@ -22,7 +22,7 @@ function FavAppCard({id, handleUnfavorite, updateAppDetails}){
         })
     },[])
 
-    if(loading) return <h1><em>You haven't favorited any apps!</em></h1>
+    if(loading) return <h1><em>Loading...</em></h1>
     if(errors) return <h1>{errors}</h1>
 
     console.log("thisFav data:", thisFav)
@@ -68,15 +68,28 @@ function FavAppCard({id, handleUnfavorite, updateAppDetails}){
                     <Image src={thisFav.program.screenshot_five} alt="app's screenshot #5" size='medium'/>
 
                 </Card.Content >
-                <Button >
-                    <Link to={`/programs/${thisFav.program.id}`}>   
-                        App's Details
-                     </Link>
-                </Button>
-                <Button animated onClick={handleClick}>
-                    <Button.Content visible >Unfavorite?</Button.Content>
+
+                <Button animated color="blue" size='large'>
+                    <Link to={`/programs/${thisFav.program.id}`}>
+                    <Button.Content color='white' visible >
+                        <Header as='h3' inverted color='white'>App's Details</Header> 
+                    </Button.Content>
                     <Button.Content hidden>
-                        <Icon name='heart outline' />
+                        <Icon inverted color='white' size='large' name='info circle'/>
+                        <Icon inverted color='white' size='large' name='chat'/>
+                    </Button.Content>
+                    </Link>
+                </Button>
+
+                <Button animated onClick={handleClick}>
+                    <Button.Content visible >
+                        <Header as='h3'>Unfavorite?</Header>
+                    </Button.Content>
+                    <Button.Content hidden>
+                        <Icon.Group>
+                            <Icon name='x'/>
+                            <Icon name='heart outline' size='big'/>
+                        </Icon.Group>
                     </Button.Content>
                 </Button>
         </Card>

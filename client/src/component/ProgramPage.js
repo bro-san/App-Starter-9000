@@ -1,4 +1,4 @@
-import { Card, Button, Icon, Image, Container } from "semantic-ui-react";
+import { Card, Button, Icon, Image, Container, Header } from "semantic-ui-react";
 import CommentsCard from './CommentsCard';
 import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
@@ -122,15 +122,20 @@ function ProgramPage({appDetails, userInfo, updateAppDetails}) {
                     <Image src={appDetails.screenshot_two} alt="app's screenshot #2" size='medium'/>
                     <Image src={appDetails.screenshot_three} alt="app's screenshot #3" />
                 </Card.Content >
-                <Button animated onClick={handleFavClick}>
-                    <Button.Content visible >Favorite?</Button.Content>
+                <Button inverted color='blue' animated onClick={handleFavClick}>
+                    <Button.Content visible >
+                        <Header color='blue'>Favorite?</Header>
+                    </Button.Content>
                     <Button.Content hidden>
-                        <Icon name='heart' />
+                        <Icon.Group>
+                            <Icon inverted color='pink' size='big' name='heart' />
+                            <Icon color='violet' name='plus' />
+                        </Icon.Group>
                     </Button.Content>
                 </Button>
                
-                <Button onClick={handleCommentAdd}>
-                     <h2><em>Add Your Own Comment!</em></h2>
+                <Button color='blue' onClick={handleCommentAdd}>
+                     <h3><em>Add Your Own Comment!</em></h3>
                 </Button>
             </Card>
   

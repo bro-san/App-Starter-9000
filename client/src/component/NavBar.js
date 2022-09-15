@@ -21,87 +21,90 @@ function NavBar({user, setUser, userInfo, setUserInfo}) {
     }
 
     return (
-        <Header>
-            <Menu textAlign="center">
-                <Button animated class='ui button'>
-                  <NavLink exact to='/home'>
+      <>
+      <Header floated='right' as='h1' color='blue'>
+         <em>App Starter 9000!</em></Header>
+      <Header>
+      <Menu textAlign="center">
+            <Button animated class='ui button'>
+            <NavLink exact to='/home'>
+            <Button.Content visible >
+               Initial Location  
+               <Icon name='home'></Icon>
+            </Button.Content>
+            <Button.Content hidden>
+               Home
+            </Button.Content>
+            </NavLink>
+            </Button>
+
+            <Button animated class='ui button'>
+            <NavLink exact to='/community'>
+            <Button.Content visible >      
+               Collaboration 
+               <Icon name='users'></Icon>
+            </Button.Content>
+            <Button.Content hidden>
+                  Community Page
+            </Button.Content>
+            </NavLink>
+            </Button>
+
+         <Menu.Item class='navbar'>
+            {user==null || user == false ? <Button animated>
+               <NavLink exact to='/signup'>
                   <Button.Content visible >
-                     Initial Location  
-                     <Icon name='home'></Icon>
+                  Registration
+                  <Icon name='signup'></Icon>
+               </Button.Content>
+               <Button.Content hidden>
+               Sign up
+            </Button.Content>
+            </NavLink>
+            </Button> :
+            null}
+         </Menu.Item>
+
+         <Menu.Item class='navbar'>
+            {user==null || user == false ? <Button animated>
+               <NavLink exact to='/login'>
+                  <Button.Content visible >
+                     Authentication
+                     <Icon name='sign-in'></Icon>
                   </Button.Content>
                   <Button.Content hidden>
-                     Home
+                     Sign in
                   </Button.Content>
-                  </NavLink>
-                </Button>
+               </NavLink>
+            </Button> :
+            <Button animated onClick={(e)=> onLogout(e)}>
+               <Button.Content visible >
+               Resignation
+               <Icon name='sign-out'></Icon>
+               </Button.Content>
+               <Button.Content hidden>
+               Sign out
+               </Button.Content>
+            </Button>}
+         </Menu.Item>
 
-                <Button animated class='ui button'>
-                  <NavLink exact to='/community'>
-                  <Button.Content visible >      
-                     Collaboration 
-                     <Icon name='users'></Icon>
-                  </Button.Content>
-                  <Button.Content hidden>
-                      Community Page
-                  </Button.Content>
-                  </NavLink>
-                </Button>
-
-               <Menu.Item class='navbar'>
-                  {user==null || user == false ? <Button animated>
-                     <NavLink exact to='/signup'>
-                        <Button.Content visible >
-                        Registration
-                        <Icon name='signup'></Icon>
-                     </Button.Content>
-                     <Button.Content hidden>
-                     Sign up
-                  </Button.Content>
-                  </NavLink>
-                  </Button> :
-                  null}
-
-               </Menu.Item>
-
-               <Menu.Item class='navbar'>
-                  {user==null || user == false ? <Button animated>
-                     <NavLink exact to='/login'>
-                        <Button.Content visible >
-                           Authentication
-                           <Icon name='sign-in'></Icon>
-                        </Button.Content>
-                        <Button.Content hidden>
-                           Sign in
-                        </Button.Content>
-                     </NavLink>
-                  </Button> :
-                  <Button animated onClick={(e)=> onLogout(e)}>
+         <Menu.Item class='navbar'>
+            {user==null || user == false ? null :
+               <Button animated>
+                  <NavLink exact to={`/users/${userInfo.id}`}>
                      <Button.Content visible >
-                     Resignation
-                     <Icon name='sign-out'></Icon>
+                           Personalization
+                           <Icon name='sign-out'></Icon>
                      </Button.Content>
                      <Button.Content hidden>
-                     Sign out
+                           User's Page
                      </Button.Content>
-                  </Button>}
-               </Menu.Item>
-
-               <Menu.Item class='navbar'>
-                  {user==null || user == false ? null :
-                     <Button animated>
-                       <NavLink exact to={`/users/${userInfo.id}`}>
-                           <Button.Content visible >
-                               Personalization
-                               <Icon name='sign-out'></Icon>
-                           </Button.Content>
-                           <Button.Content hidden>
-                               User's Page
-                           </Button.Content>
-                        </NavLink>
-                     </Button>}
-               </Menu.Item>
-        </Menu>
+                  </NavLink>
+               </Button>}
+         </Menu.Item>
+      </Menu>
   </Header>
+  </>
     )
 }
 

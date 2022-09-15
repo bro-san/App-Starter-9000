@@ -27,14 +27,22 @@ function AppsList({storeInfo, userInfo, updateAppDetails, appDetails, adjective}
 
      console.log("These apps have been fetched:", apps)
 
-     const appsList = apps.map(app => {
-        return <AppCard key={app.id}
-        app={app}
-        userInfo={userInfo}
-        updateAppDetails={updateAppDetails}
-        appDetails={appDetails}
-        />
-    })
+     function setAppsList(apps) {
+        let appsListConditional
+        if (apps.length != 0) {
+            appsListConditional = apps.map(app => {
+                return <AppCard key={app.id}
+                app={app}
+                userInfo={userInfo}
+                updateAppDetails={updateAppDetails}
+                appDetails={appDetails}
+                />
+          })
+        } else {
+            appsListConditional = "Sorry, that term doesn't have any hits..."
+        }
+        return(appsListConditional)
+    }
 
      const nouns = ['creations', 'recommendations', 'iterations']
      let noun = nouns[Math.floor(Math.random()*nouns.length)];
@@ -44,9 +52,8 @@ function AppsList({storeInfo, userInfo, updateAppDetails, appDetails, adjective}
         <Header as='h1' color='blue'><Icon name='check square'/>{adjective}...</Header>
         <h1>How about these {noun}?</h1>
         <Card.Group itemsPerRow={3}>
-            {appsList}
+            {setAppsList(apps)}
         </Card.Group>
-        {/* <Image src='https://www.sector7apps.com/wp-content/uploads/2019/08/how-to-build-a-mobile-app-from-the-ground-up.jpg' alt='website logo'/>  */}
     </Container>
     )
 }
